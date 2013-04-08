@@ -61,6 +61,11 @@ public class Interpolator
          throw new IllegalArgumentException("more than 10 parameters");
       }
       
+      if (string == null)
+      {
+         string ="";
+      }
+      
       if (string.indexOf('#') >= 0 || string.indexOf('{') >= 0)
       {
          string = interpolateExpressions(string, params);
