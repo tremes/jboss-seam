@@ -99,17 +99,21 @@ public class SeamViewHandler extends ViewHandlerWrapper
 
        if (!getSource().equals(Source.BOOKMARKABLE) && !getSource().equals(Source.REDIRECT) )
        {
-          if ( !conversation.isNested() || conversation.isLongRunning() )
+          if ( conversation.isLongRunning() )
           {
              return new FacesUrlTransformer(actionUrl, facesContext)
              .appendConversationIdIfNecessary(conversationIdParameter, conversation.getId())
              .getUrl();
           }
-          else
+          else if (conversation.isNested())
           {
              return new FacesUrlTransformer(actionUrl, facesContext)
              .appendConversationIdIfNecessary(conversationIdParameter, conversation.getParentId())
              .getUrl();
+          }
+          else 
+          {
+             return actionUrl;
           }
 
        } else {
@@ -143,7 +147,7 @@ public class SeamViewHandler extends ViewHandlerWrapper
       try
       {
          source.set(Source.BOOKMARKABLE);
-         return super.getBookmarkableURL(context, viewId, parameters, includeViewParams);
+         return viewHandler.getBookmarkableURL(context, viewId, parameters, includeViewParams);
       }
       finally
       {
