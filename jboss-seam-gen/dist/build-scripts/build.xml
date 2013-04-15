@@ -300,7 +300,7 @@
 
 	<target name="explode" depends="prepare-explode,create-dodeploy"/>
 
-    <available file="${deploy.dir}/${project.name}.war.deployed" property="deployed.file.exists"/>
+    <available file="${deploy.dir}/${project.name}.ear.deployed" property="deployed.file.exists"/>
 
 	<target name="prepare-explode" depends="stage,datasource"
         description="Deploy the exploded archive">
