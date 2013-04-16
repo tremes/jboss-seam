@@ -845,4 +845,14 @@ public class HibernateSessionInvocationHandler implements InvocationHandler, Ser
       return delegate.bySimpleNaturalId(entityClass);
    }
 
+   public ScrollableResults scroll(Criteria criteria, ScrollMode scrollMode)
+   {
+      return ((SessionImplementor) delegate).scroll(criteria, scrollMode);
+   }
+
+   public List list(Criteria criteria)
+   {
+      return ((SessionImplementor) delegate).list(criteria);
+   }
+
 }
