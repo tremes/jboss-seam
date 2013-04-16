@@ -209,6 +209,7 @@ public class BlogTest extends JUnitSeamTest
          {
             List<BlogEntry> results = (List<BlogEntry>) getInstance("searchResults");
             // The hibernate search returns non-precise matches since version 4, so we only check that the expected result is first
+            assert !results.isEmpty();
             assert "seamtext".equals(results.get(0).getId());
          }
          
