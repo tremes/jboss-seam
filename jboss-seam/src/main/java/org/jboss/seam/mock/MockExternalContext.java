@@ -118,6 +118,12 @@ public class MockExternalContext extends ExternalContext
    }
 
    @Override
+   public String encodeRedirectURL(String baseUrl, Map<String, List<String>> parameters)
+   {
+      return encodeURL(baseUrl);
+   }
+
+   @Override
    public Map getApplicationMap()
    {
       return new AttributeMap()
