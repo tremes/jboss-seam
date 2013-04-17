@@ -43,13 +43,10 @@
     </organization>        
     
     <properties>
-        <version.org.hibernate.search>4.2.0.Beta1</version.org.hibernate.search>
-
         <!-- Excluded TestNG groups (ex: slow annotated tests won't run during 
             the test phase) -->
         <tests.excludedGroups>slow</tests.excludedGroups>
         <guava.version>12.0</guava.version>
-        <richfaces.version>4.2.2.Final</richfaces.version>
         <slf4j.version>1.6.1</slf4j.version>
         <version.jbossas7>7.1.1.Final</version.jbossas7>
         <version.jacoco>0.5.8.201207111220</version.jacoco>
@@ -250,31 +247,16 @@
             </dependency>
 
             <!-- guava is required by richfaces -->
-
             <dependency>
                 <groupId>com.google.guava</groupId>
                 <artifactId>guava</artifactId>
                 <version>${guava.version}</version>
             </dependency>
 
-
-            <!--  common test scope dependencies -->
             <dependency>
                 <groupId>org.slf4j</groupId>
                 <artifactId>slf4j-log4j12</artifactId>
                 <version>${slf4j.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>org.apache.myfaces.trinidad</groupId>
-                <artifactId>trinidad-api</artifactId>
-                <version>2.0.1</version>
-            </dependency>
-
-            <dependency>
-                <groupId>org.apache.myfaces.trinidad</groupId>
-                <artifactId>trinidad-impl</artifactId>
-                <version>2.0.1</version>
             </dependency>
 
         </dependencies>

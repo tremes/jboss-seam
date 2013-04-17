@@ -50,5 +50,6 @@
             <artifactId>trinidad-api</artifactId>
         </dependency>
     </dependencies>
-   
+    
+
 </project>
