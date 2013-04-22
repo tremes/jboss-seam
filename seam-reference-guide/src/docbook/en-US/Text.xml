@@ -34,7 +34,7 @@ It's easy to make <i>emphasis</i>, <tt>monospace</tt>
         </para>
 
         <programlisting><![CDATA[+This is a big heading
-You /must/ have some text following a heading!
+You *must* have some text following a heading!
  
 ++This is a smaller heading
 This is the first paragraph. We can split it across multiple 
