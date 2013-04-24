@@ -202,7 +202,7 @@
                </para>
                <programlisting role="JAVA"><![CDATA[@Install(dependencies="org.jboss.seam.bpm.jbpm")]]></programlisting>
                <para>
-                  Specifies that a component should only be stalled if the 
+                  Specifies that a component should only be installed if the 
                   components listed as dependencies are also installed.
                </para>
                <programlisting role="JAVA"><![CDATA[@Install(genericDependencies=ManagedQueueSender.class)]]></programlisting>
