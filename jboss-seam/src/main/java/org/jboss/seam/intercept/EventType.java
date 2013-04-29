@@ -10,6 +10,7 @@ package org.jboss.seam.intercept;
 enum EventType
 {
    AROUND_INVOKE,
+   AROUND_TIMEOUT,
    PRE_DESTORY,
    POST_CONSTRUCT,
    PRE_PASSIVATE,
