@@ -544,8 +544,10 @@ public class MockExternalContext extends ExternalContext
    @Override
    public void redirect(String url) throws IOException
    {
-      if ("partial/ajax".equals(this.request.getHeader("Faces-Request")))
+      if ("partial/ajax".equals(this.request.getHeader("Faces-Request")) &&
+            !this.response.isCommitted())
       {
+         this.response.reset(); //reset any data to not duplicate any response
          this.response.setContentType("text/xml");
          this.response.setCharacterEncoding("UTF-8");
          this.response.addHeader("Cache-Control", "no-cache");
@@ -558,7 +560,7 @@ public class MockExternalContext extends ExternalContext
          this.response.getWriter().flush();
       }
       else
-      {
+      {         
          this.response.sendRedirect(url);
       }
 
