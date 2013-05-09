@@ -29,6 +29,7 @@ public class EJB
    public static final Class<Annotation> PERSISTENCE_CONTEXT;
    public static final Class<Annotation> INTERCEPTORS;
    public static final Class<Annotation> AROUND_INVOKE;
+   public static final Class<Annotation> AROUND_TIMEOUT;
    public static final Class<Annotation> EJB_EXCEPTION;
    public static final boolean INVOCATION_CONTEXT_AVAILABLE;
    
@@ -61,6 +62,7 @@ public class EJB
       POST_CONSTRUCT = classForName("javax.annotation.PostConstruct");
       INTERCEPTORS = classForName("javax.interceptor.Interceptors");
       AROUND_INVOKE = classForName("javax.interceptor.AroundInvoke");
+      AROUND_TIMEOUT = classForName("javax.interceptor.AroundTimeout");
       EJB_EXCEPTION = classForName("javax.ejb.EJBException");
       INVOCATION_CONTEXT_AVAILABLE = !classForName("javax.interceptor.InvocationContext").equals(Dummy.class);
    }

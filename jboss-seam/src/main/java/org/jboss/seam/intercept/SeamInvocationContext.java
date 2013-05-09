@@ -71,6 +71,7 @@ class SeamInvocationContext implements InvocationContext
                {
                   return interceptor.aroundInvoke(this, userInterceptor);
                }
+            case AROUND_TIMEOUT: return interceptor.aroundTimeout(this, userInterceptor);
             case POST_CONSTRUCT: return interceptor.postConstruct(this, userInterceptor);
             case PRE_DESTORY: return interceptor.preDestroy(this, userInterceptor);
             case PRE_PASSIVATE: return interceptor.prePassivate(this, userInterceptor);

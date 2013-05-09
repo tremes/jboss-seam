@@ -2,6 +2,7 @@
 package org.jboss.seam.intercept;
 
 import static org.jboss.seam.util.EJB.AROUND_INVOKE;
+import static org.jboss.seam.util.EJB.AROUND_TIMEOUT;
 import static org.jboss.seam.util.EJB.POST_ACTIVATE;
 import static org.jboss.seam.util.EJB.POST_CONSTRUCT;
 import static org.jboss.seam.util.EJB.PRE_DESTROY;
@@ -9,6 +10,8 @@ import static org.jboss.seam.util.EJB.PRE_PASSIVATE;
 
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Method;
+
+import javax.interceptor.AroundTimeout;
 
 import org.jboss.seam.Component;
 import org.jboss.seam.annotations.intercept.AroundInvoke;
@@ -28,6 +31,7 @@ public final class Interceptor extends Reflections
    private Class<?> userInterceptorClass;
    private Object statelessUserInterceptorInstance;
    private Method aroundInvokeMethod;
+   private Method aroundTimeoutMethod;
    private Method postConstructMethod;
    private Method preDestroyMethod;
    private Method postActivateMethod;
@@ -132,6 +136,10 @@ public final class Interceptor extends Reflections
          {
             aroundInvokeMethod = method;
          }
+         if ( method.isAnnotationPresent(AROUND_TIMEOUT) || method.isAnnotationPresent(AroundTimeout.class) )
+         {
+            aroundTimeoutMethod = method;
+         }         
          if ( method.isAnnotationPresent(POST_CONSTRUCT) || method.isAnnotationPresent(PostConstruct.class))
          {
             postConstructMethod = method;
@@ -187,6 +195,13 @@ public final class Interceptor extends Reflections
       return aroundInvokeMethod==null ?
             invocation.proceed() :
             Reflections.invoke( aroundInvokeMethod, userInterceptor, invocation );
+   }
+   
+   public Object aroundTimeout(InvocationContext invocation, Object userInterceptor) throws Exception
+   {
+      return aroundTimeoutMethod==null ?
+            invocation.proceed() :
+            Reflections.invoke( aroundTimeoutMethod, userInterceptor, invocation );
    }
    
    public Object postConstruct(InvocationContext invocation, Object userInterceptor) throws Exception
