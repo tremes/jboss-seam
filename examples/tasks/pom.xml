@@ -3,11 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.jboss.seam.examples</groupId>
     <artifactId>tasks</artifactId>
-    <parent>
-        <groupId>org.jboss.seam</groupId>
-        <artifactId>examples</artifactId>
-        <version>2.3.2-SNAPSHOT</version>
-    </parent>
+    <version>2.3.2-SNAPSHOT</version>
     <packaging>pom</packaging>
     <name>Tasks Example (EE6)</name>
     
@@ -19,11 +15,12 @@
         <module>tasks-ear</module>
         <module>tasks-ejb</module>
         <module>tasks-web</module>
-        <module>tasks-tests</module>
+        
     </modules>
     
     <dependencyManagement>
         <dependencies>
+            <!-- Modules -->
             <dependency>
                 <groupId>org.jboss.seam.examples.tasks</groupId>
                 <artifactId>tasks-ejb</artifactId>
@@ -41,6 +38,5 @@
                 <artifactId>tasks-ear</artifactId>
                 <version>${project.version}</version>
             </dependency>
-        </dependencies>
-    </dependencyManagement>
+        <!-- BOMs -->             <dependency>                 <groupId>org.jboss.seam</groupId>                 <artifactId>bom</artifactId>                 <version>${project.version}</version>                 <type>pom</type>                 <scope>import</scope>             </dependency> </dependencies></dependencyManagement>
 </project>
