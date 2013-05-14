@@ -1519,50 +1519,6 @@
         <echo message="Type '${seam.cmd} restart' and go to http://localhost:8080/${project.name}/${masterPage.name}.seam"/>
     </target>
 
-    <target name="add-ivy" depends="validate-project" description="Add Ivy to the project for downloading dependencies">
-        <copy todir="${project.home}">
-            <fileset dir="${templates.dir}/ivy"/>
-            <filterset refid="project"/>
-        </copy>
-        <condition property="ivy.present">
-            <isfileselected file="${project.home}/build.xml">
-                <contains text="ivy-build.xml"/>
-            </isfileselected>
-        </condition>
-        <replace dir="${project.home}">
-            <include name="build.xml" unless="ivy.present"/>
-            <replacetoken><![CDATA[<target name="init"]]></replacetoken>
-            <replacevalue><![CDATA[<!-- Import Ivy targets for downloading dependencies -->
-    <import file="${basedir}/ivy-build.xml"/>
-
-    <target name="init"]]></replacevalue>
-        </replace>
-
-        <!-- uncomment richfaces dependencies if not using icefaces -->
-        <replace dir="${project.home}">
-            <include name="ivy.xml" unless="icefaces.property"/>
-            <replacetoken><![CDATA[ [if richfaces] ->]]></replacetoken>
-            <replacevalue><![CDATA[ [if richfaces] -->]]></replacevalue>
-        </replace>
-        <replace dir="${project.home}">
-            <include name="ivy.xml" unless="icefaces.property"/>
-            <replacetoken><![CDATA[<!- [/endif richfaces] ]]></replacetoken>
-            <replacevalue><![CDATA[<!-- [/endif richfaces] ]]></replacevalue>
-        </replace>
-
-        <!-- uncomment icefaces dependencies if using icefaces -->
-        <replace dir="${project.home}">
-            <include name="ivy.xml" if="icefaces.property"/>
-            <replacetoken><![CDATA[ [if icefaces] ->]]></replacetoken>
-            <replacevalue><![CDATA[ [if icefaces] -->]]></replacevalue>
-        </replace>
-        <replace dir="${project.home}">
-            <include name="ivy.xml" if="icefaces.property"/>
-            <replacetoken><![CDATA[<!- [/endif icefaces] ]]></replacetoken>
-            <replacevalue><![CDATA[<!-- [/endif icefaces] ]]></replacevalue>
-        </replace>
-    </target>
-
     <!-- Do not remove generate-entities, netbeans depends on it -->
     <target name="generate-entities" depends="generate"/>
     <target name="generate" depends="validate-project,generate-model,generate-ui"
