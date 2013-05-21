@@ -53,7 +53,9 @@ public abstract class UISeamCommandBase extends UIOutput implements ActionSource
          viewId = Pages.getViewId(getFacesContext());
       }
 
-      ViewUrlBuilder url = new ViewUrlBuilder(viewId, getFragment(), !isPortletRequest(getFacesContext()));
+      // JBSEAM-5097 encoded actionMethod in URL causes SafeActions to fail  
+      //ViewUrlBuilder url = new ViewUrlBuilder(viewId, getFragment(), !isPortletRequest(getFacesContext()));
+      ViewUrlBuilder url = new ViewUrlBuilder(viewId, getFragment());
 
       Set<String> usedParameters = new HashSet<String>();
       for (Object child : getChildren())
