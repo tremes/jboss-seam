@@ -22,8 +22,8 @@ Updating version numbers
         - Check all the issue types one at a time to determine final list.
  - update pom.xml versions
     - mvn versions:set -DnewVersion=XXX -Pall
-    - cd examples-ee6; mvn versions:set -DnewVersion=XXX
-    - find examples-ee6/remoting/progressbar -type f -name pom.xml -exec sed -i 's/XXX/YYY/g' {} \;
+    - cd examples; mvn versions:set -DnewVersion=XXX
+    - find examples/remoting/progressbar -type f -name pom.xml -exec sed -i 's/XXX/YYY/g' {} \;
  - replace all other version string usages
     - find . -path '*/.svn*' -prune -o -type f -name '*.xml' -exec sed -i /XXX/YYY/g' {} \;
 
