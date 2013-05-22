@@ -14,10 +14,13 @@ import javax.el.ValueExpression;
 import javax.faces.FacesException;
 import javax.faces.application.Application;
 import javax.faces.application.NavigationHandler;
+import javax.faces.application.ProjectStage;
 import javax.faces.application.Resource;
+import javax.faces.application.ResourceHandler;
 import javax.faces.application.StateManager;
 import javax.faces.application.ViewHandler;
 import javax.faces.component.UIComponent;
+import javax.faces.component.behavior.Behavior;
 import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
 import javax.faces.el.MethodBinding;
@@ -27,6 +30,7 @@ import javax.faces.el.ValueBinding;
 import javax.faces.el.VariableResolver;
 import javax.faces.event.ActionListener;
 import javax.faces.event.SystemEvent;
+import javax.faces.event.SystemEventListener;
 import javax.faces.validator.Validator;
 
 import org.jboss.seam.Component;
@@ -457,5 +461,121 @@ public class SeamApplication extends Application
    {
       application.publishEvent(context, systemEventClass, sourceBaseType, source);
    }
-   
+
+   /* (non-Javadoc)
+    * @see javax.faces.application.Application#createBehavior(java.lang.String)
+    */
+   @Override
+   public Behavior createBehavior(String behaviorId) throws FacesException
+   {
+      return application.createBehavior(behaviorId);
+   }
+
+   /* (non-Javadoc)
+    * @see javax.faces.application.Application#getBehaviorIds()
+    */
+   @Override
+   public Iterator<String> getBehaviorIds()
+   {
+      return application.getBehaviorIds();
+   }
+
+   /* (non-Javadoc)
+    * @see javax.faces.application.Application#getResourceHandler()
+    */
+   @Override
+   public ResourceHandler getResourceHandler()
+   {
+      return application.getResourceHandler();
+   }
+
+   /* (non-Javadoc)
+    * @see javax.faces.application.Application#setResourceHandler(javax.faces.application.ResourceHandler)
+    */
+   @Override
+   public void setResourceHandler(ResourceHandler resourceHandler)
+   {
+      application.setResourceHandler(resourceHandler);
+   }
+
+   /* (non-Javadoc)
+    * @see javax.faces.application.Application#getProjectStage()
+    */
+   @Override
+   public ProjectStage getProjectStage()
+   {
+      return application.getProjectStage();
+   }
+
+   /* (non-Javadoc)
+    * @see javax.faces.application.Application#addBehavior(java.lang.String, java.lang.String)
+    */
+   @Override
+   public void addBehavior(String behaviorId, String behaviorClass)
+   {
+      application.addBehavior(behaviorId, behaviorClass);
+   }
+
+   /* (non-Javadoc)
+    * @see javax.faces.application.Application#createComponent(javax.el.ValueExpression, javax.faces.context.FacesContext, java.lang.String, java.lang.String)
+    */
+   @Override
+   public UIComponent createComponent(ValueExpression componentExpression, FacesContext context, String componentType, String rendererType)
+   {
+      return application.createComponent(componentExpression, context, componentType, rendererType);
+   }
+
+   /* (non-Javadoc)
+    * @see javax.faces.application.Application#addDefaultValidatorId(java.lang.String)
+    */
+   @Override
+   public void addDefaultValidatorId(String validatorId)
+   {
+      application.addDefaultValidatorId(validatorId);
+   }
+
+   /* (non-Javadoc)
+    * @see javax.faces.application.Application#getDefaultValidatorInfo()
+    */
+   @Override
+   public Map<String, String> getDefaultValidatorInfo()
+   {
+      return application.getDefaultValidatorInfo();
+   }
+
+   /* (non-Javadoc)
+    * @see javax.faces.application.Application#subscribeToEvent(java.lang.Class, java.lang.Class, javax.faces.event.SystemEventListener)
+    */
+   @Override
+   public void subscribeToEvent(Class<? extends SystemEvent> systemEventClass, Class<?> sourceClass, SystemEventListener listener)
+   {
+      application.subscribeToEvent(systemEventClass, sourceClass, listener);
+   }
+
+   /* (non-Javadoc)
+    * @see javax.faces.application.Application#subscribeToEvent(java.lang.Class, javax.faces.event.SystemEventListener)
+    */
+   @Override
+   public void subscribeToEvent(Class<? extends SystemEvent> systemEventClass, SystemEventListener listener)
+   {
+      application.subscribeToEvent(systemEventClass, listener);
+   }
+
+   /* (non-Javadoc)
+    * @see javax.faces.application.Application#unsubscribeFromEvent(java.lang.Class, java.lang.Class, javax.faces.event.SystemEventListener)
+    */
+   @Override
+   public void unsubscribeFromEvent(Class<? extends SystemEvent> systemEventClass, Class<?> sourceClass, SystemEventListener listener)
+   {
+      application.unsubscribeFromEvent(systemEventClass, sourceClass, listener);
+   }
+
+   /* (non-Javadoc)
+    * @see javax.faces.application.Application#unsubscribeFromEvent(java.lang.Class, javax.faces.event.SystemEventListener)
+    */
+   @Override
+   public void unsubscribeFromEvent(Class<? extends SystemEvent> systemEventClass, SystemEventListener listener)
+   {
+      application.unsubscribeFromEvent(systemEventClass, listener);
+   }
 }
