@@ -7,7 +7,7 @@
 	
   <property name="test.lib.dir" location="test" />
   <property name="version.jboss-as7" value="7.1.1.Final"/>
-	<property name="version.arquillian-junit" value="1.0.1.Final"/>
+	<property name="version.arquillian-junit" value="1.0.3.Final"/>
   <target name="copyarq" >
         <mkdir dir="${test.lib.dir}"/>
 		<aether:resolve>
