@@ -451,6 +451,7 @@
            <id>all</id>
            <modules>
                <module>examples</module>
+               <module>seam-reference-guide</module>
                <module>distribution</module>
            </modules>
        </profile>
@@ -585,9 +586,6 @@
                 </plugin>
             </plugins>
         </build>
-        <modules>
-            <module>seam-reference-guide</module>
-        </modules>
       </profile>
       
       <profile>
