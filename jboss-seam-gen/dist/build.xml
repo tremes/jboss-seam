@@ -508,7 +508,7 @@
         <property name="hibernate.connection.dataSource_class.default" value="org.h2.jdbcx.JdbcDataSource"/>
         <property name="hibernate.connection.url.default" value="jdbc:h2:."/>
 
-        <property name="driver.jar.default" value=""/>
+        <property name="driver.jar.default" value="h2"/>
         <input addproperty="driver.jar.new"
                    message="Enter the filesystem path to the JDBC driver jar [${driver.jar.default}]"
               defaultvalue="${driver.jar.default}"/>
