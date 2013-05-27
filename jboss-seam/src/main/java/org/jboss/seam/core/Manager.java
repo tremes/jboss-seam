@@ -726,6 +726,7 @@ public class Manager
          endNestedConversations( getCurrentConversationId() );
          storeConversationToViewRootIfNecessary();
       }
+      unlockConversation();
    }
    
    /**
