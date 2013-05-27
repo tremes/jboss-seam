@@ -81,6 +81,12 @@
 			<filter token="seamEmfRef" value="${seamEmfRef}"/>
 			<filter token="puJndiName" value="${puJndiName}"/>
 		</filterset>
+		<filterset id="test">
+			<filter token="ejbJndiPattern" value="java:app/test/#{ejbName}"/>
+			<filter token="seamBootstrapsPu" value="${seamBootstrapsPu}"/>
+			<filter token="seamEmfRef" value="${seamEmfRef}"/>
+			<filter token="puJndiName" value="${puJndiName}"/>
+		</filterset>		
 		<filterset id="profile">
 			<filter token="debug" value="${debug}"/>
 		</filterset>
@@ -442,6 +448,12 @@
             file="${basedir}/resources/META-INF/persistence-test.xml"/>
 		<copy tofile="${test.dir}/import.sql"
             file="${basedir}/resources/import-test.sql"/>
+		<copy tofile="${test.dir}/components.properties"
+            file="${basedir}/resources/components-test.properties">
+			<filterset refid="test"/>
+		</copy>
+		<copy tofile="${test.dir}/WEB-INF/ejb-jar.xml"
+            file="${basedir}/resources/META-INF/ejb-jar.xml"/>		
 		<copy tofile="${test.dir}/components.properties"
             file="${basedir}/resources/components-test.properties"/>
 		<copy tofile="${test.dir}/WEB-INF/web.xml"
