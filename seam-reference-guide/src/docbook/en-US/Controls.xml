@@ -1346,6 +1346,21 @@
                      should be unique
                   </para>
                </listitem>
+			   <listitem>
+                  <para>
+                     <literal>cache</literal> &#8212; specify if this image should be cached. Boolean value.
+                  </para>
+               </listitem>
+			   <listitem>
+                  <para>
+                     <literal>invalidate</literal> &#8212; specify if this image cache should be invalidated. Boolean value.
+                  </para>
+               </listitem>               
+			   <listitem>
+                  <para>
+                     <literal>cacheKey</literal> &#8212; specify unique string for a cached image.
+                  </para>
+               </listitem>
             </itemizedlist>
             
             <para><emphasis>Transformations</emphasis></para>

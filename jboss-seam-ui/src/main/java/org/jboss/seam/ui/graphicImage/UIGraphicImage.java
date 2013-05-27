@@ -31,4 +31,13 @@ public abstract class UIGraphicImage extends HtmlGraphicImage
    
    @Attribute
    public abstract Object getValue();
+   
+   @Attribute(description = @Description("True if this image should be cached"))
+   public abstract boolean isCache();
+   
+   @Attribute(description = @Description("Unique string for a cached image"))
+   public abstract String getCacheKey();
+   
+   @Attribute(description = @Description("if property resolves to true, current cached key will be removed"))
+   public abstract boolean isInvalidate();
 }
