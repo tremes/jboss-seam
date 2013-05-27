@@ -6,6 +6,7 @@ import java.util.concurrent.locks.ReentrantLock;
 import org.jboss.seam.Component;
 import org.jboss.seam.CyclicDependencyException;
 import org.jboss.seam.annotations.intercept.AroundInvoke;
+import org.jboss.seam.annotations.intercept.AroundTimeout;
 import org.jboss.seam.annotations.intercept.Interceptor;
 import org.jboss.seam.intercept.AbstractInterceptor;
 import org.jboss.seam.intercept.InvocationContext;
@@ -38,6 +39,7 @@ public class BijectionInterceptor extends AbstractInterceptor
    }
       
    @AroundInvoke
+   @AroundTimeout
    public Object aroundInvoke(InvocationContext invocation) throws Exception
    {
       Component component = getComponent();

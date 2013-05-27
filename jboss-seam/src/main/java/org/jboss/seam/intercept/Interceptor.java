@@ -11,10 +11,9 @@ import static org.jboss.seam.util.EJB.PRE_PASSIVATE;
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Method;
 
-import javax.interceptor.AroundTimeout;
-
 import org.jboss.seam.Component;
 import org.jboss.seam.annotations.intercept.AroundInvoke;
+import org.jboss.seam.annotations.intercept.AroundTimeout;
 import org.jboss.seam.annotations.intercept.InterceptorType;
 import org.jboss.seam.annotations.intercept.PostActivate;
 import org.jboss.seam.annotations.intercept.PostConstruct;
