@@ -57,7 +57,7 @@
 
         <taskdef name="groovyc"
             classname ="org.codehaus.groovy.ant.Groovyc"
-            classpathref="build.classpath"/> <!-- really only the groovy jar is necessary -->
+        	classpath="${lib.dir}/groovy-all.jar"/>
 
         <mkdir dir="${classes.model.dir}" />
         <mkdir dir="${classes.action.dir}" />

@@ -148,12 +148,4 @@ SEAM CODE GENERATION COMMANDS
 
       Example: seam add-identity-management
 
-   add-ivy
-     Alters an existing project to use Ivy to manage the dependencies. The
-     command adds Ivy configuration files and a corresponding Ant build file.
-     The Ant tasks invoke Ivy to download the dependency sets required to
-     build, test and deploy the application. The step of downloading the
-     dependencies is kept separate from the build life cycle.
-
-      Example: seam add-ivy
 

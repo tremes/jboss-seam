@@ -65,6 +65,11 @@
       </plugin>
    	</plugins>
    </build>
+   
+   <properties>
+     <hibernateversion>4.0.0.Final</hibernateversion>
+   </properties>
+       
    <dependencies>
 
       <!-- version runtime dependencies are managed only here instead in parent -->
@@ -72,6 +77,34 @@
          <groupId>org.hibernate</groupId>
          <artifactId>hibernate-tools</artifactId>
          <version>4.0.0-CR1</version>
+         <scope>runtime</scope>
+      </dependency>
+      
+      <dependency>
+         <groupId>org.hibernate</groupId>
+         <artifactId>hibernate-core</artifactId>
+         <version>${hibernateversion}</version>
+         <scope>runtime</scope>
+      </dependency>
+      
+      <dependency>
+         <groupId>org.hibernate</groupId>
+         <artifactId>hibernate-entitymanager</artifactId>
+         <version>${hibernateversion}</version>
+         <scope>runtime</scope>
+      </dependency>
+      
+      <dependency>
+         <groupId>org.hibernate.javax.persistence</groupId>
+         <artifactId>hibernate-jpa-2.0-api</artifactId>
+         <version>1.0.0.Final</version>
+         <scope>runtime</scope>
+      </dependency>
+      
+      <dependency>
+         <groupId>commons-logging</groupId>
+         <artifactId>commons-logging</artifactId>
+         <version>1.1</version>
          <scope>runtime</scope>
       </dependency>
 
@@ -168,8 +201,6 @@
         <scope>runtime</scope>
       </dependency>
    </dependencies>
-   <modules>
-   </modules>
 
     <profiles>
         <profile>

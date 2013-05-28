@@ -41,7 +41,7 @@
     <import file="${seam.dir}/build/common.build.xml"/>
 
     <target name="init">
-        <path id="seam-gen.lib.path" path="${seam.dir}/lib/gen/jboss-seam-gen.jar"/>
+        <path id="seam-gen.lib.path" path="${seam.dir}/lib/jboss-seam-gen.jar"/>
 
         <taskdef name="normalizeProjectName"
             classname="org.jboss.seam.tool.NormalizeProjectNameTask"
@@ -1519,7 +1519,7 @@
         <echo message="Type '${seam.cmd} restart' and go to http://localhost:8080/${project.name}/${masterPage.name}.seam"/>
     </target>
 
-    <!-- Do not remove generate-entities, netbeans depends on it -->
+    <!-- Do not remove generate-entities, netbeans depends o n it -->
     <target name="generate-entities" depends="generate"/>
     <target name="generate" depends="validate-project,generate-model,generate-ui"
         description="Reverse engineer entities from the database">
@@ -1528,37 +1528,33 @@
     <target name="init-generate">
         <path id="htools.classpath">
             <pathelement path="${seam.dir}/lib/ant.jar"/>
-            <pathelement path="${seam.dir}/lib/gen/hibernate-tools.jar"/>
-            <pathelement path="${seam.dir}/lib/gen/freemarker.jar"/>
-            <pathelement path="${seam.dir}/lib/jboss-seam.jar"/>
-            <pathelement path="${seam.dir}/lib/gen/runtime.jar"/>
-            <pathelement path="${seam.dir}/lib/gen/common.jar"/>
-            <pathelement path="${seam.dir}/lib/gen/text.jar"/>
+        	<pathelement path="${seam.dir}/seam-gen/lib/ant-launcher.jar"/>
+            <pathelement path="${seam.dir}/seam-gen/lib/hibernate-core.jar"/>
+            <pathelement path="${seam.dir}/seam-gen/lib/hibernate-entitymanager.jar"/>
+            <pathelement path="${seam.dir}/seam-gen/lib/hibernate-tools.jar"/>
+            <pathelement path="${seam.dir}/seam-gen/lib/freemarker.jar"/>
+        	<pathelement path="${seam.dir}/seam-gen/lib/core.jar"/>
+            <pathelement path="${seam.dir}/seam-gen/lib/commons-collections.jar"/>
+            <pathelement path="${seam.dir}/seam-gen/lib/commons-logging.jar"/>
+            <pathelement path="${seam.dir}/seam-gen/lib/runtime.jar"/>
+            <pathelement path="${seam.dir}/seam-gen/lib/common.jar"/>
+            <pathelement path="${seam.dir}/seam-gen/lib/text.jar"/>
             <pathelement path="${seam.dir}/lib/dom4j.jar"/>
-            <pathelement path="${seam.dir}/lib/persistence-api.jar"/>
-            <pathelement path="${seam.dir}/lib/hibernate-core.jar"/>
             <pathelement path="${seam.dir}/lib/hibernate-commons-annotations.jar"/>
-            <pathelement path="${seam.dir}/lib/hibernate-annotations.jar"/>
-            <pathelement path="${seam.dir}/lib/hibernate-entitymanager.jar"/>
             <pathelement path="${seam.dir}/lib/hibernate-validator.jar"/>
             <pathelement path="${seam.dir}/lib/jboss-logging.jar"/>
             <pathelement path="${seam.dir}/lib/jboss-transaction-api_1.1_spec.jar"/>
-            <pathelement path="${seam.dir}/lib/hibernate-jpa-2.0-api.jar"/>
-            <pathelement path="${seam.dir}/lib/gen/core.jar"/>            
-            <pathelement path="${seam.dir}/lib/slf4j-api.jar"/> 
-            <pathelement path="${seam.dir}/lib/slf4j-log4j12.jar"/> 
+            <pathelement path="${seam.dir}/lib/hibernate-jpa-2.0-api.jar"/>                       
+            <pathelement path="${seam.dir}/lib/slf4j-api.jar"/>             
             <pathelement path="${seam.dir}/lib/log4j.jar"/> 
-            <pathelement path="${seam.dir}/lib/commons-collections.jar"/>
-            <pathelement path="${seam.dir}/lib/commons-logging.jar"/>
             <pathelement path="${seam.dir}/lib/javassist.jar"/>
-            <pathelement path="${seam.dir}/lib/cglib-nodep.jar"/>
             <pathelement path="${seam.dir}/lib/asm.jar"/>
-            <pathelement path="${seam.dir}/lib/core.jar"/>
             <pathelement path="${seam.dir}/lib/jboss-common-core.jar"/>
             <pathelement path="${seam.dir}/lib/concurrent.jar"/>
             <pathelement path="${driver.jar}"/>
             <pathelement path="${driver.license.jar}"/>
-            <pathelement path="${seam.dir}/lib/gen/jboss-seam-gen.jar"/>
+            <pathelement path="${seam.dir}/lib/jboss-seam.jar"/>
+            <pathelement path="${seam.dir}/lib/jboss-seam-gen.jar"/>
         </path>
         <taskdef name="hibernate" classname="org.hibernate.tool.ant.HibernateToolTask" classpathref="htools.classpath"/>
     </target>

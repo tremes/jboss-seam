@@ -54,10 +54,10 @@
 	<import file="${basedir}/glassfish-build.xml"/>
 
 	<target name="init" description="Initialize the build">
-		<taskdef name="groovyc"
+        <taskdef name="groovyc"
             classname ="org.codehaus.groovy.ant.Groovyc"
-            classpathref="build.classpath"/>
-		<!-- really only the groovy jar is necessary -->
+        	classpath="${lib.dir}/groovy-all.jar"/>
+		
 		<mkdir dir="${jar.dir}"/>
 		<mkdir dir="${ear.dir}"/>
 		<mkdir dir="${war.dir}"/>
