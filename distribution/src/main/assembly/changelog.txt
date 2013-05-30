@@ -1,6 +1,78 @@
 JBoss Seam Changelog
 ====================
 
+Release Notes - Seam 2 - Version 2.3.1.CR1
+
+** Bug
+    * [JBSEAM-4529] - org.jboss.seam.framework.Query --- count query generation fails if the query contains a JOIN FETCH operation written in uppercase 
+    * [JBSEAM-4701] - Cookie path being set to empty string via getRequestContextPath forming invalid cookies in IE
+    * [JBSEAM-4811] - Problem sending an email with multiple recipients and attachments in <ui:repeat>.
+    * [JBSEAM-4848] - jboss-seam-ui.jar is not backward compatible
+    * [JBSEAM-4925] - Some broken links in Seam 2.3 reference guide
+    * [JBSEAM-4947] - <s:decorate /> tag breaks JSF2 f:ajax functionality
+    * [JBSEAM-4976] - Conversation id not restored from page context
+    * [JBSEAM-5001] - Deadlock between SFSB EJB lock and Component.getInstanceFromFactory factoryLock calling factory from the same component
+    * [JBSEAM-5020] - Binding component does not restore conversation
+    * [JBSEAM-5044] - s:decorate javax.faces.FacesException: Cannot add the same component twice on Mojarra 2.1.11
+    * [JBSEAM-5045] - Ajax error not calling ExceptionFilter
+    * [JBSEAM-5047] - Transaction lookup fails on Tomcat
+    * [JBSEAM-5048] - blog example atom feed not working
+    * [JBSEAM-5052] - s:selectItems noSelectionLabel causes errors without using ui:debug 
+    * [JBSEAM-5054] - Seam UI taglib tag Decorate has got wrong default value for enclose attribute
+    * [JBSEAM-5055] - only a single attachment is attached to a mail
+    * [JBSEAM-5057] - Move all Seam UI faces-config properties from xml into annotation fields/methods
+    * [JBSEAM-5058] - s:validateEquality required attribute is false by default (should be true)
+    * [JBSEAM-5061] - FacesManager.interpolateAndRedirect throws NoSuchElementException on http-Parameter without value
+    * [JBSEAM-5063] - Debug page broken
+    * [JBSEAM-5064] - s:link conversation propagation none broken
+    * [JBSEAM-5065] - page context broken on Mojarra 2.1.16
+    * [JBSEAM-5066] - Incorrect Redirection
+    * [JBSEAM-5067] - ConcurrentModificationException in ServerConversationContext.flush()
+    * [JBSEAM-5068] - seam-gen explode target touches .dodeploy forcing a restart, preventing hot-deployment
+    * [JBSEAM-5070] - seam-gen identity-management creating a new user fails with org.hibernate.exception.ConstraintViolationException: Duplicate entry '1' for key 1 
+    * [JBSEAM-5071] - seam-gen identity-management user and role manager "edit" link doesn't open the selected entity
+    * [JBSEAM-5073] - Programmatic redirect always add conversation id
+    * [JBSEAM-5074] - Excel example SeamTest failure UnsupportedOperationException in ExternalContext.getRequestCharacterEncoding
+    * [JBSEAM-5077] - ui example, s:resource s:download error 404
+    * [JBSEAM-5080] - Seam2.3 NPE in Interpolator.interpolate if pages.xml exception http-error no message set
+    * [JBSEAM-5081] - Upgrade Hibernate Search version to latest final 4.2.0.Final
+    * [JBSEAM-5082] - seam-gen generated JUnitSeamTest deployment should use org.jboss.seam.mock.MockSeamListener instead of the SeamListener
+    * [JBSEAM-5083] - SeamViewHandler adds conversation id even if conversation is not long running
+    * [JBSEAM-5084] - seam-gen dependency management with ivy is not updated
+    * [JBSEAM-5085] - Pages rewrite doesn't rewrite s:link params
+    * [JBSEAM-5086] - localization settings via component.xml doesn't work
+    * [JBSEAM-5087] - seam-gen EAR explode target touches .dodeploy forcing a restart, preventing hot-deployment
+    * [JBSEAM-5090] - Seam Text documentation falsely claims that forward slash creates italics
+    * [JBSEAM-5091] - SeamInterceptor doesn't work on EJB @Schedule methods
+    * [JBSEAM-5093] - Seam produces malformed partial response on ViewExpiredException with Ajax
+    * [JBSEAM-5097] - s:link and s:button don't work correctly when using taskInstance param
+    * [JBSEAM-5098] - SeamApplication missing JSF 2.0 methods
+    * [JBSEAM-5100] - Example Remoting Progressbar: progressbar is not changing
+    * [JBSEAM-5102] - Seam examples use unencrypted client-side view state
+    * [JBSEAM-5103] - Conversation after @End method process does not release ConversationEntry lock
+    * [JBSEAM-5104] - SoapRequestHandler doesn't create SOAP header if not exists
+    * [JBSEAM-5105] - Disable default bean validation in seam-gen generated application to use Seam validation by default
+    * [JBSEAM-5106] - Default Seam-gen generated jdbc driver is not set to h2 if it is not provided the path to driver
+    * [JBSEAM-5107] -  seam-gen EAR projects tests (form and action tests) fails with "org.jboss.seam.InstantiationException: Could not instantiate Seam component"
+    * [JBSEAM-5108] - seam-gen command generate fails in generating of UI from templates
+
+
+** Enhancement
+    * [JBSEAM-4958] - Improve the Seam UI javadoc
+    * [JBSEAM-5049] - Unify artifactIds and finalName in WAR examples for better JBDS experience
+    * [JBSEAM-5089] - Update jboss-as-maven plugin to use newer compatible version with latest AS 7/8 releases
+
+
+** Feature Request
+    * [JBSEAM-3033] - make s:graphicImage cachable
+    * [JBSEAM-5034] - Allow for seam-gen run arquillian testsuite on generated project structure
+    * [JBSEAM-5062] - Seam example ant scripts should be pure ant scripts
+
+
+** Patch
+    * [JBSEAM-5051] - messageList on place off messageManager - seam-reference-2.3.0.Final
+
+
 Release Notes - Seam 2 - Version 2.3.0.Final
 
 ** Bug
