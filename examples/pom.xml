@@ -1,10 +1,9 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.jboss.seam</groupId>
     <artifactId>examples</artifactId>
-    <version>2.3.1-SNAPSHOT</version>
+    <version>2.3.1.CR1</version>
     <packaging>pom</packaging>
 
     <name>Seam 2 EE 6 examples</name>
@@ -35,7 +34,8 @@
         <connection>scm:svn:https://svn.jboss.org/repos/seam/branches/enterprise/WFK-2_0</connection>
         <developerConnection>scm:svn:https://svn.jboss.org/repos/seam/branches/enterprise/WFK-2_0</developerConnection>
         <url>scm:svn:https://svn.jboss.org/repos/seam/branches/enterprise/WFK-2_0</url>
-    </scm>
+      <tag>JBoss_Seam_2_3_1_CR1</tag>
+  </scm>
 
     <organization>
         <name>Seam Framework</name>
@@ -53,7 +53,7 @@
 
         <!-- dependencies for functional tests -->
         <ant.junit.version>1.6.2</ant.junit.version>
-        <ftest.version.discriminator/>
+        <ftest.version.discriminator />
         <selenium.browser>*firefoxproxy</selenium.browser>
         <selenium.browser.url>http://localhost:8080</selenium.browser.url>
         <selenium.browser.cluster.url>http://localhost:8180</selenium.browser.cluster.url>
@@ -196,7 +196,7 @@
                     <version>7.3.Final</version>
                     <executions>
                         <execution>
-                            <phase></phase>
+                            <phase />
                             <goals>
                                 <goal>deploy</goal>
                             </goals>
@@ -566,10 +566,9 @@
                                     <phase>pre-integration-test</phase>
                                     <configuration>
                                         <tasks>
-                                            <echo message="Waiting for ${selenium.browser.url}/${example.context.path}"/>
+                                            <echo message="Waiting for ${selenium.browser.url}/${example.context.path}" />
                                             <waitfor maxwait="1" maxwaitunit="minute" checkevery="5000">
-                                                <http url="${selenium.browser.url}/${example.context.path}"
-                                                      errorsBeginAt="404"/>
+                                                <http url="${selenium.browser.url}/${example.context.path}" errorsBeginAt="404" />
                                             </waitfor>
                                         </tasks>
                                     </configuration>
@@ -583,11 +582,8 @@
                                     <phase>post-integration-test</phase>
                                     <configuration>
                                         <tasks>
-                                            <echo taskname="selenium-shutdown"
-                                                  message="DGF Errors during shutdown are expected"/>
-                                            <get taskname="selenium-shutdown"
-                                                 src="http://${selenium.server.host}:${selenium.server.port}/selenium-server/driver/?cmd=shutDownSeleniumServer"
-                                                 ignoreerrors="true" dest="${selenium.log.dir}/selenium.stop.msg"/>
+                                            <echo taskname="selenium-shutdown" message="DGF Errors during shutdown are expected" />
+                                            <get taskname="selenium-shutdown" src="http://${selenium.server.host}:${selenium.server.port}/selenium-server/driver/?cmd=shutDownSeleniumServer" ignoreerrors="true" dest="${selenium.log.dir}/selenium.stop.msg" />
                                         </tasks>
                                     </configuration>
                                     <goals>
@@ -600,8 +596,7 @@
                                     <phase>post-integration-test</phase>
                                     <configuration>
                                         <tasks>
-                                            <delete dir="${jboss.home}/server/${jboss.domain}/deploy/${example.context.path}.war"
-                                                    failonerror="false"/>
+                                            <delete dir="${jboss.home}/server/${jboss.domain}/deploy/${example.context.path}.war" failonerror="false" />
                                         </tasks>
                                     </configuration>
                                     <goals>
@@ -778,12 +773,10 @@
                                     <phase>pre-integration-test</phase>
                                     <configuration>
                                         <tasks>
-                                            <copy todir="${jboss.master.configuration}/farm" overwrite="true"
-                                                  flatten="true">
+                                            <copy todir="${jboss.master.configuration}/farm" overwrite="true" flatten="true">
                                                 <fileset dir="${basedir}/../${example.name}-ear/">
-                                                    <include
-                                                            name="src/main/resources/jboss-seam-${example.name}-ds.xml"/>
-                                                    <include name="target/${example.context.path}.ear"/>
+                                                    <include name="src/main/resources/jboss-seam-${example.name}-ds.xml" />
+                                                    <include name="target/${example.context.path}.ear" />
                                                 </fileset>
                                             </copy>
                                         </tasks>
@@ -798,10 +791,9 @@
                                     <phase>pre-integration-test</phase>
                                     <configuration>
                                         <tasks>
-                                            <echo message="Waiting for ${selenium.browser.cluster.url}/${example.context.path}"/>
+                                            <echo message="Waiting for ${selenium.browser.cluster.url}/${example.context.path}" />
                                             <waitfor maxwait="1" maxwaitunit="minute" checkevery="5000">
-                                                <http url="${selenium.browser.cluster.url}/${example.context.path}"
-                                                      errorsBeginAt="404"/>
+                                                <http url="${selenium.browser.cluster.url}/${example.context.path}" errorsBeginAt="404" />
                                             </waitfor>
                                         </tasks>
                                     </configuration>
@@ -815,11 +807,8 @@
                                     <phase>post-integration-test</phase>
                                     <configuration>
                                         <tasks>
-                                            <echo taskname="selenium-shutdown"
-                                                  message="DGF Errors during shutdown are expected"/>
-                                            <get taskname="selenium-shutdown"
-                                                 src="http://${selenium.server.host}:${selenium.server.port}/selenium-server/driver/?cmd=shutDownSeleniumServer"
-                                                 ignoreerrors="true" dest="${selenium.log.dir}/selenium.stop.msg"/>
+                                            <echo taskname="selenium-shutdown" message="DGF Errors during shutdown are expected" />
+                                            <get taskname="selenium-shutdown" src="http://${selenium.server.host}:${selenium.server.port}/selenium-server/driver/?cmd=shutDownSeleniumServer" ignoreerrors="true" dest="${selenium.log.dir}/selenium.stop.msg" />
                                         </tasks>
                                     </configuration>
                                     <goals>
@@ -833,8 +822,8 @@
                                         <tasks>
                                             <delete failonerror="false">
                                                 <fileset dir="${jboss.master.configuration}/farm">
-                                                    <include name="jboss-seam-${example.name}-ds.xml"/>
-                                                    <include name="${example.context.path}.ear"/>
+                                                    <include name="jboss-seam-${example.name}-ds.xml" />
+                                                    <include name="${example.context.path}.ear" />
                                                 </fileset>
                                             </delete>
                                         </tasks>

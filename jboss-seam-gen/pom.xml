@@ -7,7 +7,7 @@
    <parent>
       <groupId>org.jboss.seam</groupId>
       <artifactId>jboss-seam-parent</artifactId>
-      <version>2.3.1-SNAPSHOT</version>
+      <version>2.3.1.CR1</version>
       <relativePath>../pom.xml</relativePath>
    </parent>
 
@@ -54,7 +54,7 @@
             <phase>clean</phase>
             <configuration>
               <target>
-                <delete file="${project.basedir}/../build/build.properties"/>
+                <delete file="${project.basedir}/../build/build.properties" />
               </target>
             </configuration>
             <goals>
