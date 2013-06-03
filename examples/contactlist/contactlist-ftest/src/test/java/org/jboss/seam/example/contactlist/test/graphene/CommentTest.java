@@ -19,14 +19,17 @@
  * Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
  * 02110-1301 USA, or see the FSF site: http://www.fsf.org.
  */ 
-package org.jboss.seam.example.contactlist.test.selenium;
+package org.jboss.seam.example.contactlist.test.graphene;
 
-import org.testng.annotations.Test;
-import static org.testng.AssertJUnit.*;
+import org.jboss.arquillian.container.test.api.RunAsClient;
+import org.jboss.arquillian.junit.Arquillian;
+import static org.junit.Assert.*;
+import org.junit.Test;
+import org.junit.runner.RunWith;
 
-import com.thoughtworks.selenium.Wait;
-
-public class CommentTest extends SeleniumContactlistTest {
+@RunAsClient
+@RunWith(Arquillian.class)
+public class CommentTest extends ContactlistFunctionalTestBase {
 
 	@Test
 	public void testComment() {
@@ -34,29 +37,23 @@ public class CommentTest extends SeleniumContactlistTest {
 		String lastName = "King";
 		String message = "founder of the Hibernate open source object/relational mapping project";
 		// find contact
-		browser.open(CONTEXT_PATH + START_PAGE);
-		new Wait() {
-            @Override
-            public boolean until() {
-                return browser.isElementPresent(SEARCH_SUBMIT);
-            }
-		}.wait("Search submit link not found.");
+		open(contextPath + getProperty("START_PAGE"));
+        
 		search(firstName, lastName);
 		assertTrue("Contact not found. Application is in unexpected state.",
-				searchResultPresent(firstName, lastName));
-		browser.click(SEARCH_RESULT_FIRST_ROW_LINK);
-		browser.waitForPageToLoad(TIMEOUT);
+		searchResultPresent(firstName, lastName));
+		clickAndWaitHttp(getBy("SEARCH_RESULT_FIRST_ROW_LINK"));
+
 		// submit comment
-		browser.type(COMMENT_TEXTAREA, message);
-		browser.click(COMMENT_SUBMIT);
-		browser.waitForPageToLoad(TIMEOUT);
+		type(getBy("COMMENT_TEXTAREA"), message);
+		clickAndWaitHttp(getBy("COMMENT_SUBMIT"));
+
 		// assert comment is stored
-		browser.click(SEARCH_CONTACT_PAGE);
-		browser.waitForPageToLoad(TIMEOUT);
+		clickAndWaitHttp(getBy("SEARCH_CONTACT_PAGE"));
+
 		search(firstName, lastName);
-		browser.click(SEARCH_RESULT_FIRST_ROW_LINK);
-		browser.waitForPageToLoad(TIMEOUT);
-		assertTrue("Comment is not stored.", browser
-				.isTextPresent(message));
+		clickAndWaitHttp(getBy("SEARCH_RESULT_FIRST_ROW_LINK"));
+
+		assertTrue("Comment is not stored.", isTextInSource(message));
 	}
 }
