@@ -42,7 +42,8 @@
         <version.infinispan>5.2.4.Final</version.infinispan>
         <version.junit>4.10</version.junit>
         <version.testng>5.14.10</version.testng>
-        <version.org.jboss.bom>1.0.5.Final</version.org.jboss.bom>        
+        <version.org.jboss.bom>1.0.7.CR7</version.org.jboss.bom>    
+        <version.org.jboss.shrinkwrap.resolver>2.0.0</version.org.jboss.shrinkwrap.resolver>    
 
 		<!-- ***************** -->
 		<!-- Repository Deployment URLs -->
@@ -57,7 +58,16 @@
 			that versions are only specified here, not in sub project poms. All dependencies 
 			for all modules should be listed out here -->
 		<dependencies>
-
+         	<!-- Older versions of Shrinkwrap don't automatically manage 
+                the version of Shrinkwrap depchain for us -->
+            <!-- TODO remove this when Arquillian upgrades to a newer shrinkwrap -->
+            <dependency>
+                <groupId>org.jboss.shrinkwrap.resolver</groupId>
+                <artifactId>shrinkwrap-resolver-depchain</artifactId>
+                <type>pom</type>
+                <version>${version.org.jboss.shrinkwrap.resolver}</version>
+            </dependency>
+            
 			<dependency>
 			  <groupId>org.jboss.bom</groupId>
 			  <artifactId>jboss-javaee-6.0-with-hibernate</artifactId>

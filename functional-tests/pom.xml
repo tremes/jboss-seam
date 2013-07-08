@@ -1,12 +1,17 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>org.jboss.seam</groupId>
+    <parent>
+    	<groupId>org.jboss.seam</groupId>
+    	<artifactId>jboss-seam-parent</artifactId>
+    	<version>2.3.2-SNAPSHOT</version>
+    	<relativePath>../pom.xml</relativePath>
+    </parent>
+
     <artifactId>functional-tests</artifactId>
-    <version>2.3.2-SNAPSHOT</version>
     <name>Seam Functional Tests Common Classes</name>
 
     <properties>
-        <version.arquillian>1.0.3.Final</version.arquillian>
+        <version.arquillian>1.1.0.Final</version.arquillian>
         <version.graphene>2.0.0.Alpha4</version.graphene>
         <version.shrinkwrap.resolver>2.0.0</version.shrinkwrap.resolver>
         <version.junit>4.10</version.junit>
@@ -23,6 +28,16 @@
             <groupId>org.jboss.arquillian.junit</groupId>
             <artifactId>arquillian-junit-container</artifactId>
             <version>${version.arquillian}</version>
+            <exclusions>
+            	<exclusion>
+            		<artifactId>shrinkwrap-api</artifactId>
+            		<groupId>org.jboss.shrinkwrap</groupId>
+            	</exclusion>
+            	<exclusion>
+            		<artifactId>shrinkwrap-spi</artifactId>
+            		<groupId>org.jboss.shrinkwrap</groupId>
+            	</exclusion>
+            </exclusions>
         </dependency>
 
         <dependency>
