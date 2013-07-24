@@ -1,28 +1,24 @@
 package org.jboss.seam.example.restbay.test;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import org.dbunit.operation.DatabaseOperation;
 import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.container.test.api.OverProtocol;
 import org.jboss.arquillian.junit.Arquillian;
 import org.jboss.seam.mock.DBJUnitSeamTest;
-
-import org.jboss.seam.mock.ResourceRequestEnvironment;
 import org.jboss.seam.mock.EnhancedMockHttpServletRequest;
 import org.jboss.seam.mock.EnhancedMockHttpServletResponse;
+import org.jboss.seam.mock.ResourceRequestEnvironment;
+import org.jboss.seam.mock.ResourceRequestEnvironment.Method;
+import org.jboss.seam.mock.ResourceRequestEnvironment.ResourceRequest;
 import org.jboss.shrinkwrap.api.Archive;
-import org.jboss.shrinkwrap.api.spec.EnterpriseArchive;
 import org.jboss.shrinkwrap.api.spec.WebArchive;
 import org.jboss.shrinkwrap.resolver.api.maven.Maven;
-
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-
-import static org.jboss.seam.mock.ResourceRequestEnvironment.ResourceRequest;
-import static org.jboss.seam.mock.ResourceRequestEnvironment.Method;
-
-import java.util.Map;
-import java.util.HashMap;
 
 /**
  *
