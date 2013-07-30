@@ -422,7 +422,6 @@
 
    <modules>
       <module>bom</module>
-      <module>seam-cdk-helper</module>
       <module>jboss-seam</module>
       <module>jboss-seam-ui</module>
       <module>jboss-seam-debug</module>
