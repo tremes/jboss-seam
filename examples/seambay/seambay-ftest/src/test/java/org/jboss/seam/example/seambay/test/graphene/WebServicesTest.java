@@ -85,6 +85,12 @@ public class WebServicesTest extends SeamGrapheneTest {
                 .importFrom(new File(examplesHome + "/seambay/seambay-ear/target/seam-seambay.ear"))
                 .as(EnterpriseArchive.class);
     }
+    
+    @Before
+    public void beforeTest() throws MalformedURLException {
+        // it seems HTMLUnit doesn't play well with the JS
+        Assume.assumeTrue(isRealBrowser());
+    }
 
     @Test
     @InSequence(1)

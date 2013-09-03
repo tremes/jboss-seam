@@ -83,4 +83,18 @@ public class SeamBayFunctionalTestBase extends SeamGrapheneTest {
         clickAndWaitHttp(getBy("SEARCH_SUBMIT"));
         return getXpathCount(getBy("SEARCH_RESULTS_COUNT"));
     }
+    
+    public void placeBid(String price) {
+        if (isElementPresent(getBy("ITEM_NEW_BID_FIELD"))) {
+            type(getBy("ITEM_NEW_BID_FIELD"), price);
+            clickAndWaitHttp(getBy("ITEM_NEW_BID_SUBMIT"));
+        } else if (isElementPresent(getBy("BID_INCREASE_FIELD"))) {
+            type(getBy("BID_INCREASE_FIELD"), price);
+            clickAndWaitHttp(getBy("BID_INCREASE_SUBMIT"));
+        } else {
+            fail("Unable to place a bid.");
+        }
+        clickAndWaitHttp(getBy("BID_CONFIRM"));
+    }
+
 }

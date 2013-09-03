@@ -25,6 +25,8 @@ import org.jboss.arquillian.container.test.api.RunAsClient;
 import org.jboss.arquillian.junit.Arquillian;
 import org.jboss.arquillian.junit.InSequence;
 import static org.junit.Assert.*;
+import org.junit.Assume;
+import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -39,6 +41,14 @@ import org.junit.runner.RunWith;
 @RunWith(Arquillian.class)
 public class SeamDiscsFunctionalTest extends SeamDiscsFunctionalTestBase {
 
+    // TRINIDAD-2223 - A problem in Trinidad's ADF RequestQueue.js causes trouble in HTMLUnit and PhantomJS:
+    // TypeError: Cannot call method "toLowerCase" of undefined (http://127.0.0.1:8080/seam-seamdiscs/adf/jsLibs/Common2_0_0_beta_2.js#6909)
+    // form.enctype is the 'undefined' for some reason
+    @Before
+    public void assumeRealBrowser() {
+        Assume.assumeTrue(isRealBrowser());
+    }
+    
     @Test
     @InSequence(1)
     public void createWithDiscsTest() {
@@ -134,7 +144,7 @@ public class SeamDiscsFunctionalTest extends SeamDiscsFunctionalTestBase {
     }
     
     @Test
-    @Ignore
+    @Ignore("bz975128")
     @InSequence(6)
     public void editDiscTest() {
         clickAndWaitHttp(MANAGE_DISCS);
@@ -164,7 +174,7 @@ public class SeamDiscsFunctionalTest extends SeamDiscsFunctionalTestBase {
     }
 
     @Test
-    @Ignore
+    @Ignore("bz975128")
     @InSequence(7)
     public void discPaginationTest() {
         findAndClickDisc("Rock and Roll Heart"); // should not be on the first page
@@ -172,7 +182,7 @@ public class SeamDiscsFunctionalTest extends SeamDiscsFunctionalTestBase {
     }
 
     @Test
-    @Ignore
+    @Ignore("bz975128")
     @InSequence(8)
     public void addDiscTest() {
         clickAndWaitHttp(MANAGE_DISCS);
@@ -200,7 +210,7 @@ public class SeamDiscsFunctionalTest extends SeamDiscsFunctionalTestBase {
     }
 
     @Test
-    @Ignore
+    @Ignore("bz975128")
     @InSequence(9)
     public void removeDiscTest() {
         clickAndWaitHttp(MANAGE_DISCS);
@@ -225,7 +235,7 @@ public class SeamDiscsFunctionalTest extends SeamDiscsFunctionalTestBase {
     }
 
     @Test
-    @Ignore
+    @Ignore("bz975128")
     @InSequence(10)
     public void cancelDiscTest() {
         clickAndWaitHttp(MANAGE_DISCS);

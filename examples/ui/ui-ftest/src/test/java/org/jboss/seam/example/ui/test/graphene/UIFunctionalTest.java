@@ -26,6 +26,7 @@ import static org.jboss.arquillian.graphene.Graphene.waitModel;
 import org.jboss.arquillian.junit.Arquillian;
 import org.jboss.arquillian.junit.InSequence;
 import static org.junit.Assert.*;
+import org.junit.Assume;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.openqa.selenium.By;
@@ -52,6 +53,9 @@ public class UIFunctionalTest extends UIFunctionalTestBase {
     @Test
     @InSequence(2)
     public void selectItemsTest() {
+        // HTMLUnit has issues with By.xpath("//input[contains(@value,'Peter Muir')]");
+        Assume.assumeTrue(isRealBrowser());
+        
         String title = "Mr.";
         String name = "Martin Gencur";
         String continent = "Europe";

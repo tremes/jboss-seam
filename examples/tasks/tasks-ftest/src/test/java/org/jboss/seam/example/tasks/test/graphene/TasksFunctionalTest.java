@@ -31,6 +31,7 @@ import org.jboss.shrinkwrap.api.ShrinkWrap;
 import org.jboss.shrinkwrap.api.importer.ZipImporter;
 import org.jboss.shrinkwrap.api.spec.EnterpriseArchive;
 import static org.junit.Assert.*;
+import org.junit.Assume;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -83,6 +84,8 @@ public class TasksFunctionalTest extends SeamGrapheneTest {
     @Before
     @Override
     public void beforeTest() {
+        // Graphene request guards act strange with HTMLUnit
+        Assume.assumeTrue(isRealBrowser());
         open(contextPath + LOGIN_URL);
         type(getBy(LOGIN_USERNAME), DEFAULT_USERNAME);
         type(getBy(LOGIN_PASSWORD), DEFAULT_PASSWORD);

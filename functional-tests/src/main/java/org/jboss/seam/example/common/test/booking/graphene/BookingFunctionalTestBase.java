@@ -40,7 +40,6 @@ import org.junit.Before;
 public class BookingFunctionalTestBase extends SeamGrapheneTest {
 
     private final String DEFAULT_USERNAME = "demo";
-
     private final String DEFAULT_PASSWORD = "demo";
 
     @Deployment(testable = false)

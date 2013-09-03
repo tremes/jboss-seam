@@ -79,7 +79,7 @@ public class RegistrationFunctionalTest extends SeamGrapheneTest {
         browser.navigate().back();
         submitRegistrationForm(username, name, password);
         assertTrue("Registration page expected.", browser.getCurrentUrl().contains(getProperty("REGISTRATION_URL")));
-        assertTrue("Error message did not appear.", isElementPresent(getBy("REGISTRATION_MESSAGE")));
+        assertTrue("Error message did not appear.", isTextInSource("User " + username + " already exists"));
     }
 
     @Test

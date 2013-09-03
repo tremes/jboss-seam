@@ -103,9 +103,11 @@ public class RoleTest extends SeamSpaceFunctionalTestBase {
         String roleRow = getProperty("ROLE_TABLE_ROW_BY_NAME", roleName);
         assertTrue("New role not found.", isElementPresent(getBy(roleRow)));
         click(getBy(roleRow + getProperty("ROLE_TABLE_DELETE")));
+        sleep(2000);
         Alert confirm = browser.switchTo().alert();
         assertTrue("Expected role deletion confirmation.", confirm.getText().contains(getProperty("ROLE_TABLE_DELETE_CONFIRMATION")));
         confirm.accept();
+        sleep(2000);
         waitModel().until(element(getBy(roleRow)).not().isPresent());
         assertFalse("Removed role still present.", isElementPresent(getBy(roleRow)));
     }

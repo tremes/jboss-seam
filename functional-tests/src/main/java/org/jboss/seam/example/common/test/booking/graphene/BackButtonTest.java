@@ -74,12 +74,13 @@ public class BackButtonTest extends BookingFunctionalTestBase {
         // don't search at this point, avoid POST request to enable back buttoning in Firefox
         logout();
         browser.navigate().back();
-        clickAndWaitAjax(getBy("SEARCH_SUBMIT"));
+        click(getBy("SEARCH_SUBMIT"));
+        sleep(5000);
         // should redirect to home when handling ViewExpiredException and due to not being logged in
         assertTrue(browser.getCurrentUrl().contains(getProperty("HOME_PAGE")));
         assertEquals("Backbuttoning failed.", getProperty("PAGE_TITLE"),
                 browser.getTitle());
-        assertTrue("Login message not present", isTextOnPage(getProperty("NOT_LOGGED_IN_MESSAGE")));
+        assertTrue("Login message not present", isTextOnPage(getProperty("NOT_LOGGED_IN_MESSAGE")) || isTextOnPage("Session expired, please log in again"));
         assertFalse("User is logged in after logout and backbuttoning", isLoggedIn());
     }
 
