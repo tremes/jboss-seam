@@ -10,8 +10,8 @@
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
-    <groupId>org.jboss.seam.examples.hibernate</groupId>
-    <artifactId>hibernate-ftest</artifactId>
+    <groupId>org.jboss.seam.examples.spring</groupId>
+    <artifactId>spring-ftest</artifactId>
     <name>Spring Example Functional Test (EE6)</name>
 
     <properties>

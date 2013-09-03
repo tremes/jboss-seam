@@ -10,8 +10,8 @@
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
-    <groupId>org.jboss.seam.examples.hibernate</groupId>
-    <artifactId>hibernate-ftest</artifactId>
+    <groupId>org.jboss.seam.examples.jpa</groupId>
+    <artifactId>jpa-ftest</artifactId>
     <name>JPA Example Functional Test (EE6)</name>
 
     <properties>
