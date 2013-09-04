@@ -14,7 +14,9 @@
 
 	<properties>
 		<version.org.jboss.arquillian.extension.drone>1.2.0.Alpha2</version.org.jboss.arquillian.extension.drone>
-	</properties>
+	    <testDeployment>${basedir}/../contactlist-ear/target/seam-contactlist.ear</testDeployment>
+        <browserCapabilities>firefox</browserCapabilities>
+    </properties>
 
 	<dependencyManagement>
 		<dependencies>
@@ -111,5 +113,16 @@
 				<filtering>true</filtering>
 			</testResource>
 		</testResources>
+        
+        <plugins>
+            <plugin>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <configuration>
+                    <systemPropertyVariables>
+                        <testDeployment>${testDeployment}</testDeployment>
+                    </systemPropertyVariables>
+                </configuration>
+            </plugin>
+        </plugins>
 	</build>
 </project>

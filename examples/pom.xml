@@ -34,8 +34,8 @@
         <connection>scm:svn:https://svn.jboss.org/repos/seam/branches/enterprise/WFK-2_0</connection>
         <developerConnection>scm:svn:https://svn.jboss.org/repos/seam/branches/enterprise/WFK-2_0</developerConnection>
         <url>scm:svn:https://svn.jboss.org/repos/seam/branches/enterprise/WFK-2_0</url>
-      <tag>HEAD</tag>
-  </scm>
+        <tag>HEAD</tag>
+    </scm>
 
     <organization>
         <name>Seam Framework</name>
@@ -62,48 +62,91 @@
         <maven.compiler.argument.source>${maven.compiler.source}</maven.compiler.argument.source>
         
     </properties>
-    
-    <modules>
-        <module>blog</module>
-        <module>booking</module>
-        <module>contactlist</module>
-        <module>drools</module>
-        <module>dvdstore</module>
-        <module>excel</module>
-        <module>groovybooking</module>
-        <module>guice</module>
-        <module>hibernate</module>
-        <module>icefaces</module>
-        <module>itext</module>
-        <module>jee6</module>
-        <module>jpa</module>
-        <module>mail</module>
-        <module>messages</module>
-        <module>metawidget/booking</module>
-        <module>metawidget/groovybooking</module>
-        <module>nestedbooking</module>
-        <module>numberguess</module>
-        <module>openid</module>
-        <module>quartz</module>
-        <module>registration</module>
-        <module>remoting/chatroom</module>
-        <module>remoting/gwt</module>
-        <module>remoting/helloworld</module>
-        <module>remoting/progressbar</module>
-        <module>restbay</module>
-        <module>rss</module>
-        <module>seambay</module>
-        <module>seamdiscs</module>
-        <module>seampay</module>
-        <module>seamspace</module>
-        <module>spring</module>
-        <module>tasks</module>
-        <module>todo</module>
-        <module>ui</module>
-        <module>wicket</module>
-    </modules>
 
     <profiles>
+        <profile>
+            <id>default</id>
+            <activation>
+                <property>
+                    <name>!ftest</name>
+                </property>
+            </activation>
+            <modules>
+                <module>blog</module>
+                <module>booking</module>
+                <module>contactlist</module>
+                <module>drools</module>
+                <module>dvdstore</module>
+                <module>excel</module>
+                <module>groovybooking</module>
+                <module>guice</module>
+                <module>hibernate</module>
+                <module>icefaces</module>
+                <module>itext</module>
+                <module>jee6</module>
+                <module>jpa</module>
+                <module>mail</module>
+                <module>messages</module>
+                <module>metawidget/booking</module>
+                <module>metawidget/groovybooking</module>
+                <module>nestedbooking</module>
+                <module>numberguess</module>
+                <module>openid</module>
+                <module>quartz</module>
+                <module>registration</module>
+                <module>remoting/chatroom</module>
+                <module>remoting/gwt</module>
+                <module>remoting/helloworld</module>
+                <module>remoting/progressbar</module>
+                <module>restbay</module>
+                <module>rss</module>
+                <module>seambay</module>
+                <module>seamdiscs</module>
+                <module>seampay</module>
+                <module>seamspace</module>
+                <module>spring</module>
+                <module>tasks</module>
+                <module>todo</module>
+                <module>ui</module>
+                <module>wicket</module>
+            </modules>
+        </profile>
+        
+        <profile>
+            <id>ftest</id>
+            <activation>
+                <property>
+                    <name>ftest</name>
+                </property>
+            </activation>
+            <modules>
+                <module>blog/blog-ftest</module>
+                <module>booking/booking-ftest</module>
+                <module>contactlist/contactlist-ftest</module>
+                <module>excel/excel-ftest</module>
+                <module>groovybooking/groovybooking-ftest</module>
+                <module>hibernate/hibernate-ftest</module>
+                <module>itext/itext-ftest</module>
+                <module>jee6/jee6-ftest</module>
+                <module>jpa/jpa-ftest</module>
+                <module>mail/mail-ftest</module>
+                <module>messages/messages-ftest</module>
+                <module>nestedbooking/nestedbooking-ftest</module>
+                <module>openid/openid-ftest</module>
+                <module>quartz/quartz-ftest</module>
+                <module>registration/registration-ftest</module>
+                <module>remoting/chatroom/chatroom-ftest</module>
+                <module>remoting/helloworld/helloworld-ftest</module>
+                <module>seambay/seambay-ftest</module>
+                <module>seamdiscs/seamdiscs-ftest</module>
+                <module>seampay/seampay-ftest</module>
+                <module>seamspace/seamspace-ftest</module>
+                <module>spring/spring-ftest</module>
+                <module>tasks/tasks-ftest</module>
+                <module>ui/ui-ftest</module>
+            </modules>
+        </profile>
+        
         <profile>
             <id>distribution</id>
             <build>
@@ -138,9 +181,9 @@
                         <artifactId>xml-maven-plugin</artifactId>
                         <version>1.0</version>
                         <configuration>
-<!--                            <catalogs> -->
-<!--                                 <catalog>src/main/resources/org/jboss/seam/catalog.xml</catalog> -->
-<!--                             </catalogs> -->
+                            <!--                            <catalogs> -->
+                            <!--                                 <catalog>src/main/resources/org/jboss/seam/catalog.xml</catalog> -->
+                            <!--                             </catalogs> -->
                             <validationSets>
                                 <validationSet>
                                     <dir>src/test/resources/WEB-INF/</dir>

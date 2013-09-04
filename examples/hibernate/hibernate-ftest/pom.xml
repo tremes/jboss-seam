@@ -16,6 +16,8 @@
 
     <properties>
         <version.org.jboss.arquillian.extension.drone>1.2.0.Alpha2</version.org.jboss.arquillian.extension.drone>
+        <testDeployment>${basedir}/../hibernate-web/target/hibernate-web.war</testDeployment>
+        <browserCapabilities>firefox</browserCapabilities>
     </properties>
     
     <dependencyManagement>
@@ -143,6 +145,15 @@
                         </configuration>
                     </execution>
                 </executions>
+            </plugin>
+
+            <plugin>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <configuration>
+                    <systemPropertyVariables>
+                        <testDeployment>${testDeployment}</testDeployment>
+                    </systemPropertyVariables>
+                </configuration>
             </plugin>
         </plugins>
     </build>

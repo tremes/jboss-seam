@@ -10,14 +10,13 @@ import org.jboss.shrinkwrap.api.spec.WebArchive;
 public class DeploymentResolver {
 
     public static Archive<?> createDeployment() {
-        String examplesHome = System.getProperty("seam.examples.home");
-        String deploymentPath = SeamGrapheneTest.getProperty("DEPLOYMENT_PATH");
-        String deploymentName = deploymentPath.substring(deploymentPath.lastIndexOf("/") + 1);
+        String testDeployment = System.getProperty("testDeployment");
+        String deploymentName = testDeployment.substring(testDeployment.lastIndexOf("/") + 1);
 
-        Class<? extends Archive<?>> deploymentClass = deploymentName.endsWith(".war")?WebArchive.class:EnterpriseArchive.class;
-        
+        Class<? extends Archive<?>> deploymentClass = deploymentName.endsWith(".war") ? WebArchive.class : EnterpriseArchive.class;
+
         return ShrinkWrap.create(ZipImporter.class, deploymentName)
-                .importFrom(new File(examplesHome + "/" + deploymentPath))
+                .importFrom(new File(testDeployment))
                 .as(deploymentClass);
     }
 }
