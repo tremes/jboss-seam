@@ -1,18 +1,19 @@
 package org.jboss.seam.example.seambay.test.graphene;
 
 import com.google.common.base.Predicate;
-import java.io.File;
+import java.net.MalformedURLException;
 import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.container.test.api.RunAsClient;
 import static org.jboss.arquillian.graphene.Graphene.*;
 import org.jboss.arquillian.graphene.wait.WebDriverWait;
 import org.jboss.arquillian.junit.Arquillian;
 import org.jboss.arquillian.junit.InSequence;
+import org.jboss.seam.example.common.test.DeploymentResolver;
 import org.jboss.seam.example.common.test.SeamGrapheneTest;
-import org.jboss.shrinkwrap.api.ShrinkWrap;
-import org.jboss.shrinkwrap.api.importer.ZipImporter;
-import org.jboss.shrinkwrap.api.spec.EnterpriseArchive;
+import org.jboss.shrinkwrap.api.Archive;
 import static org.junit.Assert.*;
+import org.junit.Assume;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.openqa.selenium.By;
@@ -80,10 +81,8 @@ public class WebServicesTest extends SeamGrapheneTest {
     protected static final String CONFIRMATION_RESPONSE_JBOSS_4 = "<confirmAuctionResponse xmlns=\"http://seambay.example.seam.jboss.org/\"";
 
     @Deployment(testable = false)
-    public static EnterpriseArchive createDeployment() {        String examplesHome = System.getProperty("seam.examples.home");
-        return ShrinkWrap.create(ZipImporter.class, "seam-seambay.ear")
-                .importFrom(new File(examplesHome + "/seambay/seambay-ear/target/seam-seambay.ear"))
-                .as(EnterpriseArchive.class);
+    public static Archive<?> createDeployment() {
+        return DeploymentResolver.createDeployment();
     }
     
     @Before

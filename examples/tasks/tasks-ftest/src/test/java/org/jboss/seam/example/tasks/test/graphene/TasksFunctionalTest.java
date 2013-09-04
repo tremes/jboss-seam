@@ -21,15 +21,13 @@
  */
 package org.jboss.seam.example.tasks.test.graphene;
 
-import java.io.File;
 import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.container.test.api.RunAsClient;
 import static org.jboss.arquillian.graphene.Graphene.*;
 import org.jboss.arquillian.junit.Arquillian;
+import org.jboss.seam.example.common.test.DeploymentResolver;
 import org.jboss.seam.example.common.test.SeamGrapheneTest;
-import org.jboss.shrinkwrap.api.ShrinkWrap;
-import org.jboss.shrinkwrap.api.importer.ZipImporter;
-import org.jboss.shrinkwrap.api.spec.EnterpriseArchive;
+import org.jboss.shrinkwrap.api.Archive;
 import static org.junit.Assert.*;
 import org.junit.Assume;
 import org.junit.Before;
@@ -77,7 +75,7 @@ public class TasksFunctionalTest extends SeamGrapheneTest {
     public static final String TASKS_PRESENT = "xpath=//table[@id='tasks']/tbody/tr";
 
     @Deployment(testable = false)
-    public static EnterpriseArchive createDeployment() {
+    public static Archive<?> createDeployment() {
         return DeploymentResolver.createDeployment();
     }
 

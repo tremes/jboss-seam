@@ -21,17 +21,15 @@
  */
 package org.jboss.seam.example.remoting.chatroom.test.graphene;
 
-import java.io.File;
 import java.net.MalformedURLException;
 import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.container.test.api.RunAsClient;
 import static org.jboss.arquillian.graphene.Graphene.*;
 import org.jboss.arquillian.graphene.wait.WebDriverWait;
 import org.jboss.arquillian.junit.Arquillian;
+import org.jboss.seam.example.common.test.DeploymentResolver;
 import org.jboss.seam.example.common.test.SeamGrapheneTest;
-import org.jboss.shrinkwrap.api.ShrinkWrap;
-import org.jboss.shrinkwrap.api.importer.ZipImporter;
-import org.jboss.shrinkwrap.api.spec.EnterpriseArchive;
+import org.jboss.shrinkwrap.api.Archive;
 import static org.junit.Assert.*;
 import org.junit.Assume;
 import org.junit.Before;
@@ -55,7 +53,7 @@ public class ChatroomFunctionalTest extends SeamGrapheneTest {
     private static String SECOND = "1";
 
     @Deployment(testable = false)
-    public static EnterpriseArchive createDeployment() {
+    public static Archive<?> createDeployment() {
         return DeploymentResolver.createDeployment();
     }
 

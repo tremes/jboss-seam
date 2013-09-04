@@ -22,12 +22,10 @@
 package org.jboss.seam.example.seamdiscs.test.graphene;
 
 import com.thoughtworks.selenium.SeleniumException;
-import java.io.File;
 import org.jboss.arquillian.container.test.api.Deployment;
+import org.jboss.seam.example.common.test.DeploymentResolver;
 import org.jboss.seam.example.common.test.SeamGrapheneTest;
-import org.jboss.shrinkwrap.api.ShrinkWrap;
-import org.jboss.shrinkwrap.api.importer.ZipImporter;
-import org.jboss.shrinkwrap.api.spec.EnterpriseArchive;
+import org.jboss.shrinkwrap.api.Archive;
 import static org.junit.Assert.*;
 import org.junit.Before;
 import org.openqa.selenium.By;
@@ -91,7 +89,7 @@ public abstract class SeamDiscsFunctionalTestBase extends SeamGrapheneTest {
     public static String DEFAULT_PASSWORD = "administrator";
 
     @Deployment(testable = false)
-    public static EnterpriseArchive createDeployment() {
+    public static Archive<?> createDeployment() {
         return DeploymentResolver.createDeployment();
     }
 

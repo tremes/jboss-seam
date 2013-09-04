@@ -21,12 +21,10 @@
  */
 package org.jboss.seam.example.seambay.test.graphene;
 
-import java.io.File;
 import org.jboss.arquillian.container.test.api.Deployment;
+import org.jboss.seam.example.common.test.DeploymentResolver;
 import org.jboss.seam.example.common.test.SeamGrapheneTest;
-import org.jboss.shrinkwrap.api.ShrinkWrap;
-import org.jboss.shrinkwrap.api.importer.ZipImporter;
-import org.jboss.shrinkwrap.api.spec.EnterpriseArchive;
+import org.jboss.shrinkwrap.api.Archive;
 import static org.junit.Assert.*;
 
 /**
@@ -38,7 +36,7 @@ import static org.junit.Assert.*;
 public class SeamBayFunctionalTestBase extends SeamGrapheneTest {
 
     @Deployment(testable = false)
-    public static EnterpriseArchive createDeployment() {
+    public static Archive<?> createDeployment() {
         return DeploymentResolver.createDeployment();
     }
     protected String defaultLogin = "demo";

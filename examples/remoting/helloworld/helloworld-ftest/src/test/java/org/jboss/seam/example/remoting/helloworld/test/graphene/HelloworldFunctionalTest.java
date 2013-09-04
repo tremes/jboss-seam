@@ -21,16 +21,14 @@
  */
 package org.jboss.seam.example.remoting.helloworld.test.graphene;
 
-import java.io.File;
 import java.net.MalformedURLException;
 import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.container.test.api.RunAsClient;
 import org.jboss.arquillian.junit.Arquillian;
 import org.jboss.arquillian.junit.InSequence;
+import org.jboss.seam.example.common.test.DeploymentResolver;
 import org.jboss.seam.example.common.test.SeamGrapheneTest;
-import org.jboss.shrinkwrap.api.ShrinkWrap;
-import org.jboss.shrinkwrap.api.importer.ZipImporter;
-import org.jboss.shrinkwrap.api.spec.EnterpriseArchive;
+import org.jboss.shrinkwrap.api.Archive;
 import static org.junit.Assert.*;
 import org.junit.Assume;
 import org.junit.Before;
@@ -47,17 +45,14 @@ import org.openqa.selenium.NoAlertPresentException;
  */
 @RunAsClient
 @RunWith(Arquillian.class)
-public class HelloworldTest extends SeamGrapheneTest {
+public class HelloworldFunctionalTest extends SeamGrapheneTest {
 
     protected static final int TRIES = 5;
     protected static final int INTERVAL = 2000;
 
     @Deployment(testable = false)
-    public static EnterpriseArchive createDeployment() {
-        String examplesHome = System.getProperty("seam.examples.home");
-        return ShrinkWrap.create(ZipImporter.class, "seam-helloworld.ear")
-                .importFrom(new File(examplesHome + "/remoting/helloworld/helloworld-ear/target/seam-helloworld.ear"))
-                .as(EnterpriseArchive.class);
+    public static Archive<?> createDeployment() {
+        return DeploymentResolver.createDeployment();
     }
 
     @Override

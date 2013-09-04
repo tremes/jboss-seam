@@ -1,13 +1,11 @@
 package org.jboss.seam.example.excel.test.graphene;
 
-import java.io.File;
 import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.container.test.api.RunAsClient;
 import org.jboss.arquillian.junit.Arquillian;
+import org.jboss.seam.example.common.test.DeploymentResolver;
 import org.jboss.seam.example.common.test.SeamGrapheneTest;
-import org.jboss.shrinkwrap.api.ShrinkWrap;
-import org.jboss.shrinkwrap.api.importer.ZipImporter;
-import org.jboss.shrinkwrap.api.spec.EnterpriseArchive;
+import org.jboss.shrinkwrap.api.Archive;
 import static org.junit.Assert.*;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -19,7 +17,7 @@ public class ExcelFunctionalTest extends SeamGrapheneTest {
     public static final String HOME_PAGE_TITLE = "Microsoft® Excel® Export examples";
 
     @Deployment(testable = false)
-    public static EnterpriseArchive createDeployment() {
+    public static Archive<?> createDeployment() {
         return DeploymentResolver.createDeployment();
     }
 

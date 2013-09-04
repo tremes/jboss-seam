@@ -1,16 +1,14 @@
 package org.jboss.seam.example.seambay.test.graphene;
 
-import java.io.File;
 import java.net.URL;
 import java.text.MessageFormat;
 import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.container.test.api.RunAsClient;
 import org.jboss.arquillian.junit.Arquillian;
 import org.jboss.arquillian.test.api.ArquillianResource;
+import org.jboss.seam.example.common.test.DeploymentResolver;
 import static org.jboss.seam.example.common.test.SeamGrapheneTest.getProperty;
-import org.jboss.shrinkwrap.api.ShrinkWrap;
-import org.jboss.shrinkwrap.api.importer.ZipImporter;
-import org.jboss.shrinkwrap.api.spec.EnterpriseArchive;
+import org.jboss.shrinkwrap.api.Archive;
 import org.junit.After;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
@@ -31,11 +29,8 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 public class ComplexBidTest {
 
     @Deployment(testable = false)
-    public static EnterpriseArchive createDeployment() {
-        String examplesHome = System.getProperty("seam.examples.home");
-        return ShrinkWrap.create(ZipImporter.class, "seam-seambay.ear")
-                .importFrom(new File(examplesHome + "/seambay/seambay-ear/target/seam-seambay.ear"))
-                .as(EnterpriseArchive.class);
+    public static Archive<?> createDeployment() {
+        return DeploymentResolver.createDeployment();
     }
 
     @ArquillianResource

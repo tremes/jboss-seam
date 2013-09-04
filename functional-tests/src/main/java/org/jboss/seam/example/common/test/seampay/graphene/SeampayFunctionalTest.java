@@ -21,17 +21,15 @@
  */
 package org.jboss.seam.example.common.test.seampay.graphene;
 
-import java.io.File;
 import java.math.BigDecimal;
 import java.text.NumberFormat;
 import java.text.ParseException;
 import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.container.test.api.RunAsClient;
 import org.jboss.arquillian.junit.Arquillian;
+import org.jboss.seam.example.common.test.DeploymentResolver;
 import org.jboss.seam.example.common.test.SeamGrapheneTest;
-import org.jboss.shrinkwrap.api.ShrinkWrap;
-import org.jboss.shrinkwrap.api.importer.ZipImporter;
-import org.jboss.shrinkwrap.api.spec.EnterpriseArchive;
+import org.jboss.shrinkwrap.api.Archive;
 import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
@@ -48,11 +46,8 @@ import org.openqa.selenium.By;
 public class SeampayFunctionalTest extends SeamGrapheneTest {
     
     @Deployment(testable = false)
-    public static EnterpriseArchive createDeployment() {
-        String examplesHome = System.getProperty("seam.examples.home");
-        return ShrinkWrap.create(ZipImporter.class, getProperty("DEPLOYMENT_NAME"))
-                .importFrom(new File(examplesHome + "/" + getProperty("DEPLOYMENT_PATH")))
-                .as(EnterpriseArchive.class);
+    public static Archive<?> createDeployment() {
+        return DeploymentResolver.createDeployment();
     }
     
     protected NumberFormat nf = NumberFormat.getNumberInstance();

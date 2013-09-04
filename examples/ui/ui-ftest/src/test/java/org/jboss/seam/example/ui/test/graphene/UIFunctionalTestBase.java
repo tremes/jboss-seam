@@ -22,16 +22,14 @@
 package org.jboss.seam.example.ui.test.graphene;
 
 import java.io.BufferedReader;
-import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.MalformedURLException;
 import java.net.URL;
 import org.jboss.arquillian.container.test.api.Deployment;
+import org.jboss.seam.example.common.test.DeploymentResolver;
 import org.jboss.seam.example.common.test.SeamGrapheneTest;
-import org.jboss.shrinkwrap.api.ShrinkWrap;
-import org.jboss.shrinkwrap.api.importer.ZipImporter;
-import org.jboss.shrinkwrap.api.spec.EnterpriseArchive;
+import org.jboss.shrinkwrap.api.Archive;
 import org.junit.Before;
 import org.openqa.selenium.By;
 
@@ -91,7 +89,7 @@ public class UIFunctionalTestBase extends SeamGrapheneTest {
     public static final By CHECK_DATE_BUTTON = By.xpath("//input[@type='submit'][@value='Check date']");
 
     @Deployment(testable = false)
-    public static EnterpriseArchive createDeployment() {
+    public static Archive<?> createDeployment() {
         return DeploymentResolver.createDeployment();
     }
 

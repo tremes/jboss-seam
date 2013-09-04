@@ -21,15 +21,13 @@
  */
 package org.jboss.seam.example.registration.test.graphene;
 
-import java.io.File;
 import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.container.test.api.RunAsClient;
 import org.jboss.arquillian.junit.Arquillian;
 import org.jboss.arquillian.junit.InSequence;
+import org.jboss.seam.example.common.test.DeploymentResolver;
 import org.jboss.seam.example.common.test.SeamGrapheneTest;
-import org.jboss.shrinkwrap.api.ShrinkWrap;
-import org.jboss.shrinkwrap.api.importer.ZipImporter;
-import org.jboss.shrinkwrap.api.spec.EnterpriseArchive;
+import org.jboss.shrinkwrap.api.Archive;
 import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
@@ -46,7 +44,7 @@ import org.junit.runner.RunWith;
 public class RegistrationFunctionalTest extends SeamGrapheneTest {
 
     @Deployment(testable = false)
-    public static EnterpriseArchive createDeployment() {
+    public static Archive<?> createDeployment() {
         return DeploymentResolver.createDeployment();
     }
 
@@ -72,7 +70,7 @@ public class RegistrationFunctionalTest extends SeamGrapheneTest {
     @Test
     @InSequence(2)
     public void duplicateUsernameTest() {
-        String username = "jane";
+        String username = "janeDoe";
         String name = "Jane Doe";
         String password = "secretPassword";
         submitRegistrationForm(username, name, password);
