@@ -9,7 +9,6 @@
     </parent>
     <groupId>org.jboss.seam.examples.booking</groupId>
     <artifactId>groovybooking-ftest</artifactId>
-    <version>2.3.2-SNAPSHOT</version>
     <name>Groovy Booking Functional Tests Module</name>
     
     <properties>
