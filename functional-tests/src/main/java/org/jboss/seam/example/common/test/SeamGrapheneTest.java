@@ -42,11 +42,11 @@ import org.junit.rules.TestWatchman;
 import org.junit.runners.model.FrameworkMethod;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.NotFoundException;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.Select;
 
 /**
@@ -92,14 +92,15 @@ public abstract class SeamGrapheneTest {
             }
         }
     };
+    
     private static String PROPERTY_FILE = "/ftest.properties";
     private static boolean propertiesLoaded = false;
     private static boolean propertiesExist = false;
     private static Properties properties = new Properties();
-    
+
     @Drone
     public WebDriver browser;
-    
+
     @ArquillianResource
     protected URL contextPath;
 
@@ -154,7 +155,11 @@ public abstract class SeamGrapheneTest {
     }
 
     public boolean isElementPresent(By by) {
-        return element(by).isPresent().apply(browser);
+        try {
+            return browser.findElement(by).isDisplayed();
+        } catch (NotFoundException nfe) {
+            return false;
+        }
     }
 
     public String getText(By by) {
@@ -202,7 +207,7 @@ public abstract class SeamGrapheneTest {
     }
 
     public boolean isTextOnPage(String text) {
-        return (Boolean) element(By.tagName("body")).text().contains(text).apply(browser);
+        return (Boolean) browser.findElement(By.tagName("body")).getText().contains(text);
     }
 
     public void selectByValue(By by, Object value) {

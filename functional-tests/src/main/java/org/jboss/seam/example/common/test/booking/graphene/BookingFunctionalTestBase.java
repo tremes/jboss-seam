@@ -103,7 +103,7 @@ public class BookingFunctionalTestBase extends SeamGrapheneTest {
         if (click) {
             clickAndWaitAjax(getBy("SEARCH_SUBMIT"));
         }
-        waitModel(browser).until(element(getBy("SPINNER")).not().isVisible());// ugly
+        waitModel(browser).until().element(getBy("SPINNER")).is().not().visible();// ugly
         waitModel(browser).until(new Predicate() {
             public boolean apply(Object input) {
                 return isElementPresent(getBy("SEARCH_RESULT_TABLE")) || isElementPresent(getBy("NO_HOTELS_FOUND"));
