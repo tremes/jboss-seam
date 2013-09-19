@@ -22,7 +22,8 @@
         <!-- To use jacoco, set jacoco.agent system property to something like 
             -javaagent:/path/to/jacocoagent.jar=append=true,destfile=/path/to/output/jacoco.exec -->
         <jacoco.agent />
-
+        
+        <version.clean.plugin>2.5</version.clean.plugin>
         <version.surefire.plugin>2.10</version.surefire.plugin>
         <version.compiler.plugin>2.3.1</version.compiler.plugin>
         <version.ear.plugin>2.6</version.ear.plugin>
@@ -98,6 +99,23 @@
                 </plugin>
             </plugins>
         </pluginManagement>
+        <plugins>
+            <plugin>
+                <artifactId>maven-clean-plugin</artifactId>
+                <version>${version.clean.plugin}</version>
+                <!-- Delete lucene indexes on clean -->
+                <configuration>
+                    <filesets>
+                        <fileset>
+                            <directory>.</directory>
+                            <includes>
+                              <include>**/dvdindexes/</include>
+                            </includes>
+                        </fileset>
+                    </filesets>
+                </configuration>
+            </plugin>
+        </plugins>
     </build>
     
 </project>
