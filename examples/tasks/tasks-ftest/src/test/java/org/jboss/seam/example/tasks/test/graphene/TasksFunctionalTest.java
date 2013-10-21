@@ -89,7 +89,7 @@ public class TasksFunctionalTest extends SeamGrapheneTest {
         type(getBy(LOGIN_PASSWORD), DEFAULT_PASSWORD);
         click(getBy(LOGIN_SUBMIT));
         sleep(2000);// ugly, but need to wait until the table is fully (ajax) loaded
-        waitModel().until(element(getBy(CATEGORIES_PRESENT)).isPresent());
+        waitModel().until().element(getBy(CATEGORIES_PRESENT)).is().present();
         
         assertTrue("Navigation failure. Tasks page expected.", browser.getCurrentUrl().contains(TASKS_URL));
     }
@@ -101,7 +101,7 @@ public class TasksFunctionalTest extends SeamGrapheneTest {
         buttonMissing(turing, RESOLVE_BTN_TITLE);
         click(getBy(RESOLVED_LINK));
         sleep(2000);// ugly, but need to wait until the table is fully (ajax) loaded
-        waitModel().until(element(getBy(TASKS_PRESENT)).isPresent());
+        waitModel().until().element(getBy(TASKS_PRESENT)).is().present();
 
         buttonPresent(turing, UNDO_BTN_TITLE);
         clickAndWaitHttp(getBy(LOGOUT_LINK));
@@ -114,7 +114,7 @@ public class TasksFunctionalTest extends SeamGrapheneTest {
         buttonMissing(milk, RESOLVE_BTN_TITLE);
         click(getBy(RESOLVED_LINK));
         sleep(2000);// ugly, but need to wait until the table is fully (ajax) loaded
-        waitModel().until(element(getBy(TASKS_PRESENT)).isPresent());
+        waitModel().until().element(getBy(TASKS_PRESENT)).is().present();
 
         buttonMissing(milk, UNDO_BTN_TITLE);
         clickAndWaitHttp(getBy(LOGOUT_LINK));
@@ -125,14 +125,14 @@ public class TasksFunctionalTest extends SeamGrapheneTest {
         String turtle = "Buy a turtle";
         click(getBy(RESOLVED_LINK));
         sleep(2000);// ugly, but need to wait until the table is fully (ajax) loaded
-        waitModel().until(element(getBy(TASKS_PRESENT)).isPresent());
+        waitModel().until().element(getBy(TASKS_PRESENT)).is().present();
 
         undoTask(turtle);
         buttonMissing(turtle, UNDO_BTN_TITLE);
 
         click(getBy(TASKS_LINK));
         sleep(2000);// ugly, but need to wait until the table is fully (ajax) loaded
-        waitModel().until(element(getBy(CATEGORIES_PRESENT)).isPresent());
+        waitModel().until().element(getBy(CATEGORIES_PRESENT)).is().present();
 
         buttonPresent(turtle, RESOLVE_BTN_TITLE);
         clickAndWaitHttp(getBy(LOGOUT_LINK));
@@ -153,7 +153,7 @@ public class TasksFunctionalTest extends SeamGrapheneTest {
         String category = "JBoss QA";
         click(getBy(CATEGORIES_LINK));
         sleep(2000);// ugly, but need to wait until the table is fully (ajax) loaded
-        waitModel().until(element(getBy(CATEGORIES_PRESENT)).isPresent());
+        waitModel().until().element(getBy(CATEGORIES_PRESENT)).is().present();
 
         newCategory(category);
         buttonPresent(category, DELETE_BTN_CAT_TITLE);
@@ -173,11 +173,11 @@ public class TasksFunctionalTest extends SeamGrapheneTest {
         String category = "School";
         click(getBy(CATEGORIES_LINK));
         sleep(2000);// ugly, but need to wait until the table is fully (ajax) loaded
-        waitModel().until(element(getBy(CATEGORIES_PRESENT)).isPresent());
+        waitModel().until().element(getBy(CATEGORIES_PRESENT)).is().present();
 
         buttonPress(category, DELETE_BTN_CAT_TITLE);
         By by = getBy(String.format(ACTION_BUTTON_FORMATTER, category, DELETE_BTN_CAT_TITLE));
-        waitModel().until(element(by).not().isPresent());
+        waitModel().until().element(by).is().not().present();
         buttonMissing(category, DELETE_BTN_CAT_TITLE);
 
         // all tasks from category are deleted as well
@@ -194,7 +194,7 @@ public class TasksFunctionalTest extends SeamGrapheneTest {
      */
     protected void undoTask(String task) {
         By by = buttonPress(task, UNDO_BTN_TITLE);
-        waitModel().until(element(by).not().isPresent());
+        waitModel().until().element(by).is().not().present();
     }
 
     /**
@@ -204,7 +204,7 @@ public class TasksFunctionalTest extends SeamGrapheneTest {
      */
     protected void resolveTask(String task) {
         By by = buttonPress(task, RESOLVE_BTN_TITLE);
-        waitModel().until(element(by).not().isPresent());
+        waitModel().until().element(by).is().not().present();
     }
 
     /**
@@ -214,7 +214,7 @@ public class TasksFunctionalTest extends SeamGrapheneTest {
      */
     protected void deleteTask(String task) {
         By by = buttonPress(task, DELETE_BTN_TITLE);
-        waitModel().until(element(by).not().isPresent());
+        waitModel().until().element(by).is().not().present();
     }
 
     /**
@@ -240,7 +240,7 @@ public class TasksFunctionalTest extends SeamGrapheneTest {
     protected By buttonPresent(String description, String button) {
         String btnStr = String.format(ACTION_BUTTON_FORMATTER, description, button);
         By btn = getBy(btnStr);
-        waitModel().until(element(btn).isPresent());
+        waitModel().until().element(btn).is().present();
         assertTrue("There should be a '" + button + "' button for: " + description + ".", isElementPresent(btn));
         return btn;
     }
@@ -270,7 +270,7 @@ public class TasksFunctionalTest extends SeamGrapheneTest {
         type(getBy(NEW_TASK_DESCRIPTION), description);
         clickAndWaitAjax(getBy(NEW_TASK_SUBMIT));
         By by = getBy(String.format(ACTION_BUTTON_FORMATTER, description, RESOLVE_BTN_TITLE));
-        waitModel().until(element(by).isPresent());
+        waitModel().until().element(by).is().present();
 
     }
 
@@ -289,7 +289,7 @@ public class TasksFunctionalTest extends SeamGrapheneTest {
         clickAndWaitAjax(getBy(EDIT_TASK_SUBMIT));
 
         By by = getBy(String.format(ACTION_BUTTON_FORMATTER, newDescription, RESOLVE_BTN_TITLE));
-        waitModel().until(element(by).isPresent());
+        waitModel().until().element(by).is().present();
 
     }
 
@@ -303,6 +303,6 @@ public class TasksFunctionalTest extends SeamGrapheneTest {
         type(getBy(NEW_CATEGORY_DESCRIPTION), category);
         clickAndWaitAjax(getBy(NEW_CATEGORY_SUBMIT));
         By by = getBy(String.format(ACTION_BUTTON_FORMATTER, category, DELETE_BTN_CAT_TITLE));
-        waitModel().until(element(by).isPresent());
+        waitModel().until().element(by).is().present();
     }
 }
