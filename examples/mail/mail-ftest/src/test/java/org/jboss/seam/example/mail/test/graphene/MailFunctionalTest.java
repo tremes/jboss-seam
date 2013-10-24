@@ -9,6 +9,7 @@ import org.jboss.seam.example.common.test.SeamGrapheneTest;
 import org.jboss.shrinkwrap.api.Archive;
 import org.junit.After;
 import static org.junit.Assert.*;
+import org.junit.Assume;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -115,6 +116,7 @@ public class MailFunctionalTest extends SeamGrapheneTest {
 
     @Test
     public void testServlet() {
+        Assume.assumeTrue(isRealBrowser());
         mailTest(sendMethods[6]);
     }
 
