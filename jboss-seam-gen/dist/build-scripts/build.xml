@@ -443,6 +443,7 @@
 				<exclude name="WEB-INF/web.xml"/>
 			</fileset>
 			<fileset dir="${basedir}/view"/>
+            <fileset dir="${basedir}/resources-test"/>
 		</copy>
 		<copy tofile="${test.dir}/META-INF/persistence.xml"
             file="${basedir}/resources/META-INF/persistence-test.xml"/>
