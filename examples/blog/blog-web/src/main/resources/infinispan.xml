@@ -23,7 +23,7 @@
             <property name="threadNamePrefix" value="ReplicationQueueThread"/>
          </properties>
       </replicationQueueScheduledExecutor>
-      <globalJmxStatistics jmxDomain="infinispan" enabled="false"/>
+      <globalJmxStatistics jmxDomain="infinispan" enabled="false" allowDuplicateDomains="true"/>
       <transport transportClass="org.infinispan.remoting.transport.jgroups.JGroupsTransport" clusterName="Infinispan-Cache" distributedSyncTimeout="20000">
          <properties>
             <property name="configurationFile" value="jgroupsConfig.xml"/>
