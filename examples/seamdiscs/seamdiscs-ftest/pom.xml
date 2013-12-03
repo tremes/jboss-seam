@@ -15,7 +15,7 @@
     <properties>
         
         <testDeployment>${basedir}/../seamdiscs-ear/target/seam-seamdiscs.ear</testDeployment>
-        <browserCapabilities>firefox</browserCapabilities>
+        <browser>firefox</browser>
     </properties>
    
     <dependencies>        

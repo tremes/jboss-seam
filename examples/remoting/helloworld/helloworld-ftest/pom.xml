@@ -15,7 +15,7 @@
     <properties>
         
         <testDeployment>${basedir}/../helloworld-ear/target/seam-helloworld.ear</testDeployment>
-        <browserCapabilities>firefox</browserCapabilities>
+        <browser>firefox</browser>
     </properties>
    
     <dependencies>        

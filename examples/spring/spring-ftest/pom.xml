@@ -17,7 +17,7 @@
     <properties>
         
         <testDeployment>${basedir}/../spring-web/target/spring-web.war</testDeployment>
-        <browserCapabilities>firefox</browserCapabilities>
+        <browser>firefox</browser>
     </properties>
     
     <dependencies>        

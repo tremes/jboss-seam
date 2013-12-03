@@ -15,7 +15,7 @@
     <properties>
         
         <testDeployment>${basedir}/../dvdstore-ear/target/seam-dvdstore.ear</testDeployment>
-        <browserCapabilities>firefox</browserCapabilities>
+        <browser>firefox</browser>
     </properties>
    
     <dependencies>        

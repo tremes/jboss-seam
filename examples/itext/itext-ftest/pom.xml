@@ -15,7 +15,7 @@
     <properties>
         
         <testDeployment>${basedir}/../itext-ear/target/seam-itext.ear</testDeployment>
-        <browserCapabilities>firefox</browserCapabilities>
+        <browser>firefox</browser>
     </properties>
    
     <dependencies>        

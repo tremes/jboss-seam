@@ -14,7 +14,7 @@
     <properties>
         
         <testDeployment>${basedir}/../groovybooking-web/target/groovybooking-web.war</testDeployment>
-        <browserCapabilities>firefox</browserCapabilities>
+        <browser>firefox</browser>
     </properties>
    
     <dependencies>        

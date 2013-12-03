@@ -16,7 +16,7 @@
         
         <jms.provider.file>jboss-seam-chatroom-hornetq-jms.xml</jms.provider.file>
         <testDeployment>${basedir}/../chatroom-ear/target/seam-chatroom.ear</testDeployment>
-        <browserCapabilities>firefox</browserCapabilities>
+        <browser>firefox</browser>
     </properties>
    
     <dependencies>        

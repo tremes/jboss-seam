@@ -15,7 +15,7 @@
     <properties>
         
         <testDeployment>${basedir}/../booking-ear/target/seam-metawidget-booking.ear</testDeployment>
-        <browserCapabilities>firefox</browserCapabilities>
+        <browser>firefox</browser>
     </properties>
    
     <dependencies>        

@@ -15,7 +15,7 @@
 	<properties>
 		
 	    <testDeployment>${basedir}/../contactlist-ear/target/seam-contactlist.ear</testDeployment>
-        <browserCapabilities>firefox</browserCapabilities>
+        <browser>firefox</browser>
    </properties>
 
 	<dependencies>

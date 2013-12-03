@@ -15,7 +15,7 @@
     <properties>
         
         <testDeployment>${basedir}/../messages-ear/target/seam-messages.ear</testDeployment>
-        <browserCapabilities>firefox</browserCapabilities>
+        <browser>firefox</browser>
     </properties>
    
     <dependencies>        

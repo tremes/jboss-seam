@@ -15,7 +15,7 @@
     <properties>
         
         <testDeployment>${basedir}/../excel-ear/target/seam-excel.ear</testDeployment>
-        <browserCapabilities>firefox</browserCapabilities>
+        <browser>firefox</browser>
     </properties>
    
     <dependencies>        

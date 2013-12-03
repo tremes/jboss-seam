@@ -15,7 +15,7 @@
     <properties>
         
         <testDeployment>${basedir}/../nestedbooking-ear/target/seam-nestedbooking.ear</testDeployment>
-        <browserCapabilities>firefox</browserCapabilities>
+        <browser>firefox</browser>
     </properties>
    
     <dependencies>        
