@@ -4,6 +4,7 @@
     <classpathentry kind="src" output="classes/hot" path="src/hot"/>
     <classpathentry kind="src" output="classes/main" path="src/main"/>
     <classpathentry kind="src" output="classes/test" path="src/test"/>
+    <classpathentry kind="src" path="resources"/>
     <classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
     <classpathentry kind="lib" path="lib/activation.jar"/>
     <classpathentry kind="lib" path="lib/annotations.jar"/>
