@@ -44,7 +44,7 @@ public class AuctionTest extends JUnitSeamTest
 
                 .addAsWebInfResource("META-INF/ejb-jar.xml", "ejb-jar.xml")
                 .addAsWebInfResource("META-INF/security-rules.drl", "security-rules.drl")
-
+		.addAsWebInfResource("jboss-all.xml")
                 // Test specific persistence.xml
                 .addAsResource("persistence.xml", "META-INF/persistence.xml")
 

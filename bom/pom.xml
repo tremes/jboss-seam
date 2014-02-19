@@ -46,8 +46,9 @@
         <version.org.hibernate-jpamodelgen>1.2.0.Final</version.org.hibernate-jpamodelgen>
         
         <!-- ??? -->
-		<version.jbossas7>7.2.0.Final</version.jbossas7>		
-        <version.org.jboss.spec.jboss.javaee.6.0>3.0.2.Final</version.org.jboss.spec.jboss.javaee.6.0>
+	<version.jbossas7>7.2.0.Final</version.jbossas7>		
+        <version.wildfly>8.0.0.Final</version.wildfly>
+	<version.org.jboss.spec.jboss.javaee.6.0>3.0.2.Final</version.org.jboss.spec.jboss.javaee.6.0>
 
         <version.infinispan>5.2.7.Final</version.infinispan>
 
@@ -251,6 +252,19 @@
                 <artifactId>jboss-as-arquillian-container-remote</artifactId>
                 <version>${version.org.jboss.as.arquillian.container}</version>
             </dependency>
+		
+	    <dependency>
+                <groupId>org.wildfly</groupId>
+                <artifactId>wildfly-arquillian-container-managed</artifactId>
+                <version>${version.wildfly}</version>
+            </dependency>
+	    
+	    <dependency>
+                <groupId>org.wildfly</groupId>
+                <artifactId>wildfly-arquillian-container-remote</artifactId>
+                <version>${version.wildfly}</version>
+            </dependency>
+
 
            <!-- Recommended JUnit version -->
             <!-- Note that JUnit is preferred framework -->

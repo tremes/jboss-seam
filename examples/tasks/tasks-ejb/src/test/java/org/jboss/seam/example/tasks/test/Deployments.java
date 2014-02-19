@@ -21,7 +21,7 @@ public class Deployments {
                 .addAsResource("import.sql")
                 .addAsResource("seam.properties")
                 .addAsWebInfResource("META-INF/ejb-jar.xml", "ejb-jar.xml")
-
+	        .addAsWebInfResource("jboss-all.xml", "jboss-all.xml")
                 // test-specific persistence.xml
                 .addAsResource("persistence.xml", "META-INF/persistence.xml")
 
